@@ -1,0 +1,107 @@
+.orqaga {
+  padding-top: var(--joy-5);
+  font-size: var(--olcham-md);
+}
+
+.orqaga a {
+  color: var(--rang-matn-2);
+  text-decoration: none;
+}
+
+.orqaga a:hover {
+  color: var(--rang-asosiy);
+}
+
+.bosh {
+  padding: var(--joy-3) 0 var(--joy-6);
+}
+
+.bosh h1 {
+  margin: 0 0 var(--joy-3);
+}
+
+/* --- Video xaritasi (segmentlar) --- */
+
+.segmentlar {
+  list-style: none;
+  margin: var(--joy-4) 0 0;
+  padding: 0;
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  overflow: hidden;
+}
+
+.segmentlar li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--joy-3);
+  padding: var(--joy-3) var(--joy-4);
+  font-size: var(--olcham-md);
+  margin: 0;
+}
+
+.segmentlar li + li {
+  border-top: 1px solid var(--rang-chiziq);
+}
+
+.segmentNomi {
+  font-weight: var(--qalin-orta);
+  line-height: var(--qator-zich);
+}
+
+.tur {
+  font-size: var(--olcham-xs);
+  color: var(--rang-matn-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* --- Oldingi / keyingi dars --- */
+
+.qoshni {
+  display: flex;
+  flex-direction: column;
+  gap: var(--joy-3);
+}
+
+.qoshniHavola {
+  display: block;
+  padding: var(--joy-4);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  text-decoration: none;
+  color: var(--rang-matn);
+}
+
+.qoshniHavola:hover {
+  background: var(--rang-asosiy-och);
+  border-color: var(--rang-asosiy);
+}
+
+.qoshniHavola span {
+  display: block;
+  font-size: var(--olcham-xs);
+  color: var(--rang-matn-2);
+  margin-bottom: 2px;
+}
+
+.qoshniHavola strong {
+  font-size: var(--olcham-md);
+  line-height: var(--qator-zich);
+}
+
+.ong {
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  .qoshni {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .qoshniHavola {
+    flex: 1;
+  }
+}

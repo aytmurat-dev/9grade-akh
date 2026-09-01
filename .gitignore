@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# scripts/uy-vazifa-json.mjs build paytida yaratadi
+public/uy/
+
+.DS_Store
+.vercel
+.env*

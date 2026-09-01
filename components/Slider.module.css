@@ -1,0 +1,239 @@
+/* ------------------------------------------------------------------
+   Slayder.
+
+   Muhim: sahna o'lchami QAT'IY — 16:9, xuddi yuqoridagi video kabi.
+   Slaydda uch so'z bormi yoki yigirma qator kodmi, quti bir xil
+   qoladi va tugmalar sakramaydi. Sig'magan kontent sahna ichida
+   scroll bo'ladi.
+   ------------------------------------------------------------------ */
+
+.slayder {
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-lg);
+  background: var(--rang-fon);
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.chiziq {
+  height: 4px;
+  background: var(--rang-fon-2);
+}
+
+.chiziqIchi {
+  height: 100%;
+  background: var(--rang-asosiy);
+  /* Animatsiya yo'q — slayd darrov almashadi */
+}
+
+.sahna {
+  /* width: 100% shart — aks holda brauzer aspect-ratio'ni teskari
+     tomonga hisoblab, kenglikni min-height'dan chiqaradi. */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 340px;
+  padding: var(--joy-6) var(--joy-5);
+  display: flex;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Slayd tanasi sahnani to'liq egallaydi va ichida markazlashadi —
+   shunda rasm qolgan bo'sh joyni oladi, matn esa o'rtada turadi. */
+.ichki,
+.pauza {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ichki > *:last-child {
+  margin-bottom: 0;
+}
+
+.sarlavha {
+  margin: 0 0 var(--joy-3);
+  font-size: var(--olcham-xl);
+  color: var(--rang-asosiy-toq);
+}
+
+.matn {
+  margin: 0 0 var(--joy-3);
+  font-size: var(--olcham-lg);
+  line-height: var(--qator-orta);
+}
+
+.kod :global(pre) {
+  margin: 0;
+  font-size: var(--olcham-sm);
+}
+
+/* Rasm matndan qolgan bo'sh joyni egallaydi. Slaydda faqat rasm
+   bo'lsa — butun sahnani. Balandlik kontentga bog'liq emas. */
+.rasmQuti {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 110px;
+  border-radius: var(--burchak-md);
+  overflow: hidden;
+  /* Fon yo'q — object-fit: contain qoldirgan bo'sh joy oq ko'rinsin,
+     ayniqsa ?slayd rejimida yozib olishda. */
+}
+
+.rasm {
+  object-fit: contain;
+}
+
+/* --- PAUZA slaydi --- */
+
+.pauza {
+  text-align: center;
+}
+
+.pauzaBelgisi {
+  margin: 0;
+  font-size: var(--olcham-3xl);
+  line-height: 1;
+  color: var(--rang-diqqat);
+}
+
+.pauzaSarlavha {
+  margin: var(--joy-2) 0 var(--joy-4);
+  font-size: var(--olcham-2xl);
+  font-weight: var(--qalin-juda);
+  letter-spacing: 0.06em;
+  color: var(--rang-diqqat);
+}
+
+.pauzaTopshiriq {
+  margin: 0 auto var(--joy-4);
+  max-width: 26em;
+  font-size: var(--olcham-lg);
+  line-height: var(--qator-orta);
+  font-weight: var(--qalin-orta);
+  background: var(--rang-diqqat-och);
+  border-radius: var(--burchak-md);
+  padding: var(--joy-4) var(--joy-5);
+}
+
+.pauzaIzoh {
+  margin: 0;
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+}
+
+/* --- Boshqaruv paneli --- */
+
+.boshqaruv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--joy-3);
+  padding: var(--joy-3) var(--joy-4);
+  border-top: 1px solid var(--rang-chiziq);
+  background: var(--rang-fon-2);
+}
+
+.tugma {
+  min-width: 56px;
+}
+
+.hisob {
+  font-variant-numeric: tabular-nums;
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-md);
+}
+
+.hisob strong {
+  color: var(--rang-matn);
+  font-size: var(--olcham-lg);
+}
+
+/* ------------------------------------------------------------------
+   ?slayd — butun ekran, oq fon, katta shrift.
+   Rejim <body> sinfi bilan yoqiladi (components/SlaydRejim.tsx),
+   shuning uchun bu yerda faqat CSS.
+   ------------------------------------------------------------------ */
+
+:global(body.slayd-rejim) .slayder {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+:global(body.slayd-rejim) .sahna {
+  aspect-ratio: auto;
+  flex: 1;
+  min-height: 0;
+  padding: 5vh 7vw;
+  justify-content: center;
+}
+
+:global(body.slayd-rejim) .ichki,
+:global(body.slayd-rejim) .pauza {
+  max-width: var(--keng-keng);
+  width: 100%;
+  margin: 0 auto;
+}
+
+:global(body.slayd-rejim) .sarlavha {
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  margin-bottom: 0.5em;
+}
+
+:global(body.slayd-rejim) .matn {
+  font-size: clamp(1.3rem, 3.2vw, 2.2rem);
+  line-height: var(--qator-orta);
+}
+
+:global(body.slayd-rejim) .kod :global(pre) {
+  font-size: clamp(1rem, 2.2vw, 1.7rem);
+  padding: var(--joy-6);
+}
+
+:global(body.slayd-rejim) .rasmQuti {
+  height: min(52vh, 620px);
+  flex: none;
+}
+
+:global(body.slayd-rejim) .pauzaBelgisi {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+}
+
+:global(body.slayd-rejim) .pauzaSarlavha {
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+}
+
+:global(body.slayd-rejim) .pauzaTopshiriq {
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  max-width: 22em;
+  padding: var(--joy-6);
+}
+
+:global(body.slayd-rejim) .pauzaIzoh {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+:global(body.slayd-rejim) .boshqaruv {
+  background: transparent;
+  padding: var(--joy-4) var(--joy-6);
+}
+
+:global(body.slayd-rejim) .tugma {
+  min-width: 76px;
+  min-height: 58px;
+  font-size: var(--olcham-xl);
+}
+
+:global(body.slayd-rejim) .hisob {
+  font-size: var(--olcham-xl);
+}

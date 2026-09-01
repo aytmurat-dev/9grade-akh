@@ -1,0 +1,129 @@
+/* ==================================================================
+   DIZAYN SISTEMA — 1-qavat: tokenlar
+   ------------------------------------------------------------------
+   Bu fayldagi qiymatlardan tashqari hech qayerda "qo'lda" rang,
+   oraliq yoki shrift o'lchami yozilmaydi. Biror narsani butun sayt
+   bo'ylab o'zgartirmoqchi bo'lsangiz — shu yerni tahrirlang.
+
+   Nomlash:
+     --rang-*     rang
+     --joy-*      oraliq (padding, margin, gap)
+     --olcham-*   shrift o'lchami
+     --qator-*    qator balandligi
+     --qalin-*    shrift qalinligi
+     --burchak-*  radius
+     --soya-*     soya
+     --keng-*     kenglik chegaralari
+   ================================================================== */
+
+:root {
+  /* ---------------- Rang: asos ---------------- */
+  --rang-fon: #ffffff;
+  --rang-fon-2: #f4f6f9;
+  --rang-fon-3: #e9edf3;
+
+  --rang-matn: #16202c;
+  --rang-matn-2: #55657a;
+  --rang-matn-3: #8b98a8;
+
+  --rang-chiziq: #dde3ea;
+  --rang-chiziq-toq: #c3ccd8;
+
+  /* ---------------- Rang: asosiy (ko'k) ---------------- */
+  --rang-asosiy: #1a5fd4;
+  --rang-asosiy-toq: #12459c;
+  --rang-asosiy-och: #eaf1fd;
+
+  /* ---------------- Rang: holatlar ---------------- */
+  /* diqqat — pauza, to'xtash, e'tibor */
+  --rang-diqqat: #b8400e;
+  --rang-diqqat-och: #fdf0e8;
+  --rang-diqqat-chiziq: #f0c7b1;
+
+  /* muvaffaqiyat — bajarildi, to'g'ri */
+  --rang-yashil: #1c7a4a;
+  --rang-yashil-och: #e8f6ee;
+  --rang-yashil-chiziq: #b6ddc7;
+
+  /* xato — noto'g'ri, ishlamadi */
+  --rang-qizil: #b3261e;
+  --rang-qizil-och: #fdeceb;
+  --rang-qizil-chiziq: #f3c0bd;
+
+  /* ogohlantirish — ehtiyot bo'ling */
+  --rang-sariq: #8a6100;
+  --rang-sariq-och: #fff8e6;
+  --rang-sariq-chiziq: #ecd9a3;
+
+  /* ---------------- Rang: kod ---------------- */
+  --rang-kod-fon: #1b2430;
+  --rang-kod-matn: #e7edf5;
+  --rang-kod-panel: #131a24;
+  --rang-kod-chiziq: #2a3646;
+  --rang-kod-och: #93a4b8;
+
+  /* ---------------- Oraliq: 4px asosida ---------------- */
+  --joy-1: 4px;
+  --joy-2: 8px;
+  --joy-3: 12px;
+  --joy-4: 16px;
+  --joy-5: 20px;
+  --joy-6: 24px;
+  --joy-8: 32px;
+  --joy-10: 40px;
+  --joy-12: 48px;
+  --joy-16: 64px;
+
+  /* ---------------- Shrift ---------------- */
+  --shrift: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --shrift-kod: 'SF Mono', 'Cascadia Mono', 'JetBrains Mono', Consolas,
+    'Liberation Mono', monospace;
+
+  /* Asos 18px — telefonda o'qishga qulay */
+  --olcham-xs: 0.78rem;
+  --olcham-sm: 0.875rem;
+  --olcham-md: 1rem;
+  --olcham-lg: 1.125rem;
+  --olcham-xl: 1.35rem;
+  --olcham-2xl: 1.7rem;
+  --olcham-3xl: 2.1rem;
+
+  --qator-zich: 1.25;
+  --qator-orta: 1.5;
+  --qator-keng: 1.75;
+
+  --qalin-oddiy: 400;
+  --qalin-orta: 600;
+  --qalin-qalin: 700;
+  --qalin-juda: 800;
+
+  --harf-zich: -0.015em;
+  --harf-keng: 0.1em;
+
+  /* ---------------- Shakl ---------------- */
+  --burchak-sm: 6px;
+  --burchak-md: 12px;
+  --burchak-lg: 18px;
+  --burchak-toliq: 999px;
+
+  --soya-1: 0 1px 2px rgba(22, 32, 44, 0.06);
+  --soya-2: 0 6px 20px rgba(22, 32, 44, 0.1);
+
+  /* ---------------- O'lchov ---------------- */
+  --keng-matn: 780px;
+  --keng-keng: 1100px;
+  --tegish: 46px; /* barmoq bilan bosiladigan eng kichik o'lcham */
+
+  --tez: 0.15s ease;
+}
+
+/* Kattaroq ekranda shrift biroz o'sadi — tokenlarning o'zi o'zgaradi,
+   komponentlarga tegmaymiz. */
+@media (min-width: 640px) {
+  :root {
+    --olcham-xl: 1.5rem;
+    --olcham-2xl: 1.9rem;
+    --olcham-3xl: 2.5rem;
+  }
+}

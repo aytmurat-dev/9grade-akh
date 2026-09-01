@@ -1,0 +1,120 @@
+/* --- Raqam so'rash --- */
+
+.soroq {
+  border: 2px dashed var(--rang-asosiy);
+  background: var(--rang-asosiy-och);
+  border-radius: var(--burchak-lg);
+  padding: var(--joy-6) var(--joy-5);
+}
+
+.soroqSarlavha {
+  margin: 0 0 var(--joy-1);
+  font-size: var(--olcham-lg);
+  color: var(--rang-asosiy-toq);
+}
+
+.panjara {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--joy-3);
+  margin-top: var(--joy-4);
+}
+
+.raqamTugma {
+  padding: 0;
+  font-weight: var(--qalin-qalin);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Kutish --- */
+
+.kutish {
+  padding: var(--joy-6) var(--joy-5);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-lg);
+  color: var(--rang-matn-2);
+  background: var(--rang-fon-2);
+}
+
+/* --- Vazifa --- */
+
+.vazifa {
+  border: 1px solid var(--rang-chiziq);
+  border-left: 5px solid var(--rang-yashil);
+  border-radius: var(--burchak-lg);
+  padding: var(--joy-5);
+  background: var(--rang-fon);
+}
+
+.tepa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--joy-3);
+  margin-bottom: var(--joy-4);
+  padding-bottom: var(--joy-3);
+  border-bottom: 1px solid var(--rang-chiziq);
+}
+
+.nishon {
+  font-size: var(--olcham-md);
+  color: var(--rang-matn-2);
+}
+
+.nishon strong {
+  color: var(--rang-matn);
+  font-size: var(--olcham-lg);
+}
+
+.vaqtinchalik {
+  color: var(--rang-diqqat);
+  font-style: normal;
+  font-size: var(--olcham-sm);
+}
+
+.topshiriq {
+  margin: 0 0 var(--joy-5);
+  font-size: var(--olcham-xl);
+  line-height: var(--qator-orta);
+}
+
+.qiymat {
+  font-weight: var(--qalin-juda);
+  color: var(--rang-asosiy-toq);
+  background: var(--rang-asosiy-och);
+  border-radius: var(--burchak-sm);
+  padding: 1px 6px;
+}
+
+.talab {
+  margin-top: var(--joy-3);
+  padding: var(--joy-4);
+  background: var(--rang-fon-2);
+  border-radius: var(--burchak-md);
+}
+
+.talab h4 {
+  margin: 0 0 var(--joy-1);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-qalin);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+  color: var(--rang-matn-2);
+}
+
+.talab p {
+  margin: 0;
+  font-size: var(--olcham-md);
+  line-height: var(--qator-orta);
+}
+
+.qoshimcha {
+  background: var(--rang-sariq-och);
+}
+
+@media (min-width: 520px) {
+  .panjara {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

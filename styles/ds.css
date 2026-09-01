@@ -1,0 +1,555 @@
+/* ==================================================================
+   DIZAYN SISTEMA — 3-qavat: komponentlar
+   ------------------------------------------------------------------
+   Saytdagi barcha standart bo'laklar: qobiq, karta, tugma, belgi,
+   alert, jadval, kod bloki, matn oqimi.
+
+   Global sinflar (CSS Modules emas), sababi ikkita:
+     1) markdown'dan yasalgan HTML ham shu sinflardan foydalanadi;
+     2) bitta umumiy CSS fayl barcha sahifalarda keshlanadi —
+        102 ta dars sahifasi uchun eng arzon yechim.
+
+   React o'ramlari: components/ds/. Yangi sahifa yozayotganda shu
+   komponentlardan yig'ing, yangi rang yoki oraliq o'ylab topmang.
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   Qobiq va bo'limlar
+   ------------------------------------------------------------------ */
+
+.ds-qobiq {
+  width: 100%;
+  max-width: var(--keng-matn);
+  margin: 0 auto;
+  padding: 0 var(--joy-5);
+}
+
+.ds-qobiq--keng {
+  max-width: var(--keng-keng);
+}
+
+.ds-bolim {
+  margin-bottom: var(--joy-12);
+}
+
+/* Kichik, katta harfli bo'lim sarlavhasi */
+.ds-bolim-sarlavha {
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-qalin);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+  color: var(--rang-matn-2);
+  padding-bottom: var(--joy-2);
+  margin-bottom: var(--joy-4);
+  border-bottom: 2px solid var(--rang-chiziq);
+}
+
+/* Sarlavha ustidagi kichik yozuv: "1-DARS · I CHORAK" */
+.ds-ustki {
+  margin: 0 0 var(--joy-1);
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-qalin);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+  color: var(--rang-asosiy);
+}
+
+.ds-yordam {
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  line-height: var(--qator-orta);
+}
+
+.ds-ajratgich {
+  border: 0;
+  border-top: 1px solid var(--rang-chiziq);
+  margin: var(--joy-8) 0;
+}
+
+/* ------------------------------------------------------------------
+   Karta
+   ------------------------------------------------------------------ */
+
+.ds-karta {
+  display: block;
+  padding: var(--joy-6);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-lg);
+  background: var(--rang-fon);
+  color: var(--rang-matn);
+}
+
+.ds-karta--havola {
+  text-decoration: none;
+  border-left: 5px solid var(--rang-asosiy);
+  transition: background var(--tez), border-color var(--tez);
+}
+
+.ds-karta--havola:hover {
+  background: var(--rang-asosiy-och);
+  border-color: var(--rang-asosiy);
+}
+
+.ds-karta--havola:hover .ds-karta-sarlavha {
+  color: var(--rang-asosiy-toq);
+}
+
+.ds-karta-sarlavha {
+  margin: 0 0 var(--joy-2);
+  font-size: var(--olcham-xl);
+  color: var(--rang-asosiy-toq);
+}
+
+.ds-karta-matn {
+  margin: 0 0 var(--joy-3);
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-md);
+  line-height: var(--qator-orta);
+}
+
+.ds-karta > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Yumshoq fonli quti — izoh, ko'rsatma, ikkinchi darajali ma'lumot */
+.ds-panel {
+  padding: var(--joy-5) var(--joy-6);
+  background: var(--rang-fon-2);
+  border-radius: var(--burchak-lg);
+}
+
+.ds-panel > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Tugma
+   ------------------------------------------------------------------ */
+
+.ds-tugma {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--joy-2);
+  min-height: var(--tegish);
+  padding: var(--joy-2) var(--joy-5);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  background: var(--rang-fon);
+  color: var(--rang-matn);
+  font-size: var(--olcham-md);
+  font-weight: var(--qalin-orta);
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background var(--tez), border-color var(--tez), color var(--tez);
+}
+
+.ds-tugma:hover:not(:disabled) {
+  background: var(--rang-asosiy);
+  border-color: var(--rang-asosiy);
+  color: #fff;
+}
+
+.ds-tugma:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.ds-tugma--asosiy {
+  background: var(--rang-asosiy);
+  border-color: var(--rang-asosiy);
+  color: #fff;
+}
+
+.ds-tugma--asosiy:hover:not(:disabled) {
+  background: var(--rang-asosiy-toq);
+  border-color: var(--rang-asosiy-toq);
+}
+
+.ds-tugma--sokin {
+  border-radius: var(--burchak-toliq);
+  background: var(--rang-fon-2);
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  min-height: 36px;
+  padding: var(--joy-1) var(--joy-4);
+}
+
+.ds-tugma--katta {
+  min-height: 56px;
+  font-size: var(--olcham-lg);
+  padding: var(--joy-3) var(--joy-6);
+}
+
+/* ------------------------------------------------------------------
+   Belgi (badge)
+   ------------------------------------------------------------------ */
+
+.ds-belgi {
+  display: inline-block;
+  padding: var(--joy-1) var(--joy-3);
+  border-radius: var(--burchak-toliq);
+  background: var(--rang-fon-2);
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-orta);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.ds-belgi--asosiy {
+  background: var(--rang-asosiy-och);
+  color: var(--rang-asosiy-toq);
+}
+
+.ds-belgi--diqqat {
+  background: var(--rang-diqqat-och);
+  color: var(--rang-diqqat);
+}
+
+.ds-belgi--yashil {
+  background: var(--rang-yashil-och);
+  color: var(--rang-yashil);
+}
+
+.ds-belgi--vaqt {
+  font-family: var(--shrift-kod);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--qalin-qalin);
+  font-size: var(--olcham-xs);
+  background: var(--rang-diqqat-och);
+  color: var(--rang-diqqat);
+  border-radius: var(--burchak-sm);
+}
+
+/* ------------------------------------------------------------------
+   Alert
+   ------------------------------------------------------------------ */
+
+.ds-alert {
+  padding: var(--joy-4) var(--joy-5);
+  border: 1px solid var(--rang-chiziq);
+  border-left: 5px solid var(--rang-matn-3);
+  border-radius: var(--burchak-md);
+  background: var(--rang-fon-2);
+  margin-bottom: var(--joy-5);
+}
+
+.ds-alert > *:last-child {
+  margin-bottom: 0;
+}
+
+.ds-alert-sarlavha {
+  margin: 0 0 var(--joy-1);
+  font-size: var(--olcham-md);
+  font-weight: var(--qalin-qalin);
+  line-height: var(--qator-orta);
+}
+
+.ds-alert--eslatma {
+  border-color: var(--rang-asosiy-och);
+  border-left-color: var(--rang-asosiy);
+  background: var(--rang-asosiy-och);
+}
+.ds-alert--eslatma .ds-alert-sarlavha {
+  color: var(--rang-asosiy-toq);
+}
+
+.ds-alert--ogoh {
+  border-color: var(--rang-sariq-chiziq);
+  border-left-color: var(--rang-sariq);
+  background: var(--rang-sariq-och);
+}
+.ds-alert--ogoh .ds-alert-sarlavha {
+  color: var(--rang-sariq);
+}
+
+.ds-alert--xato {
+  border-color: var(--rang-qizil-chiziq);
+  border-left-color: var(--rang-qizil);
+  background: var(--rang-qizil-och);
+}
+.ds-alert--xato .ds-alert-sarlavha {
+  color: var(--rang-qizil);
+}
+
+.ds-alert--yashil {
+  border-color: var(--rang-yashil-chiziq);
+  border-left-color: var(--rang-yashil);
+  background: var(--rang-yashil-och);
+}
+.ds-alert--yashil .ds-alert-sarlavha {
+  color: var(--rang-yashil);
+}
+
+.ds-alert--diqqat {
+  border-color: var(--rang-diqqat-chiziq);
+  border-left-color: var(--rang-diqqat);
+  background: var(--rang-diqqat-och);
+}
+.ds-alert--diqqat .ds-alert-sarlavha {
+  color: var(--rang-diqqat);
+}
+
+/* ------------------------------------------------------------------
+   Jadval — telefonda gorizontal scroll bilan
+   ------------------------------------------------------------------ */
+
+.ds-jadval-quti {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--joy-5);
+  border-radius: var(--burchak-md);
+}
+
+.ds-jadval {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--olcham-sm);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ds-jadval th,
+.ds-jadval td {
+  border: 1px solid var(--rang-chiziq);
+  padding: var(--joy-2) var(--joy-4);
+  text-align: left;
+}
+
+.ds-jadval th {
+  background: var(--rang-fon-2);
+  font-weight: var(--qalin-qalin);
+}
+
+/* ------------------------------------------------------------------
+   Qator — ro'yxatdagi bosiladigan satr
+   ------------------------------------------------------------------ */
+
+.ds-royxat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ds-royxat > li + li {
+  border-top: 1px solid var(--rang-chiziq);
+}
+
+.ds-qator {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--joy-3);
+  padding: var(--joy-3) var(--joy-2);
+  text-decoration: none;
+  color: var(--rang-matn);
+  border-radius: var(--burchak-md);
+}
+
+.ds-qator:hover {
+  background: var(--rang-asosiy-och);
+  color: var(--rang-matn);
+}
+
+.ds-qator-raqam {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--rang-fon-2);
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-md);
+  font-weight: var(--qalin-qalin);
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-qator:hover .ds-qator-raqam {
+  background: var(--rang-asosiy);
+  color: #fff;
+}
+
+.ds-qator-nomi {
+  font-weight: var(--qalin-orta);
+  line-height: var(--qator-zich);
+}
+
+.ds-qator-izoh {
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------
+   Kod bloki — til yorlig'i + "Nusxa olish"
+   (markdown quvuri shu sinflarni yozadi: lib/markdown.ts)
+   ------------------------------------------------------------------ */
+
+.ds-kod-blok {
+  margin: 0 0 var(--joy-5);
+  border-radius: var(--burchak-md);
+  overflow: hidden;
+  background: var(--rang-kod-fon);
+}
+
+.ds-kod-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--joy-3);
+  padding: var(--joy-2) var(--joy-3) var(--joy-2) var(--joy-4);
+  background: var(--rang-kod-panel);
+  border-bottom: 1px solid var(--rang-kod-chiziq);
+}
+
+.ds-kod-til {
+  color: var(--rang-kod-och);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-qalin);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+}
+
+.ds-kod-nusxa {
+  border: 1px solid var(--rang-kod-chiziq);
+  border-radius: var(--burchak-sm);
+  background: transparent;
+  color: #cfdcea;
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-orta);
+  padding: var(--joy-1) var(--joy-3);
+  white-space: nowrap;
+  transition: background var(--tez), color var(--tez);
+}
+
+.ds-kod-nusxa:hover {
+  background: #24344a;
+  color: #fff;
+}
+
+.ds-kod-nusxa[data-holat='boldi'] {
+  border-color: #2f7d55;
+  color: #8ce0ac;
+}
+
+.ds-kod-blok pre {
+  margin: 0;
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------
+   Matn oqimi — markdown'dan kelgan qo'llanma
+   ------------------------------------------------------------------ */
+
+.ds-matn {
+  font-size: var(--olcham-lg);
+}
+
+.ds-matn > *:first-child {
+  margin-top: 0;
+}
+
+.ds-matn > *:last-child {
+  margin-bottom: 0;
+}
+
+.ds-matn h2 {
+  margin-top: var(--joy-10);
+  font-size: var(--olcham-xl);
+}
+
+.ds-matn h3 {
+  margin-top: var(--joy-8);
+  font-size: var(--olcham-lg);
+}
+
+.ds-matn blockquote {
+  margin: 0 0 var(--joy-5);
+  padding: var(--joy-3) var(--joy-4);
+  border-left: 4px solid var(--rang-asosiy);
+  border-radius: 0 var(--burchak-md) var(--burchak-md) 0;
+  background: var(--rang-asosiy-och);
+}
+
+.ds-matn blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Matn ichidagi qisqa kod: `<h1>` */
+.ds-matn :not(pre) > code {
+  background: var(--rang-fon-2);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-sm);
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.ds-rasm {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 var(--joy-5);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  background: var(--rang-fon-2);
+  cursor: zoom-in;
+}
+
+/* ------------------------------------------------------------------
+   Yordamchilar
+   ------------------------------------------------------------------ */
+
+.ds-yashirin {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ds-belgilar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--joy-2);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------
+   ?slayd rejimi — ekranni yozib olish
+   ------------------------------------------------------------------
+   Sahifa serverda to'liq chiziladi; bu rejim faqat CSS bilan
+   ortiqcha bo'laklarni yashiradi. Shu sababli dars sahifasi
+   mijoz komponentiga aylanmaydi.
+   ------------------------------------------------------------------ */
+
+body.slayd-rejim {
+  overflow: hidden;
+  background: #fff;
+}
+
+body.slayd-rejim > header,
+body.slayd-rejim > footer,
+body.slayd-rejim [data-yashir] {
+  display: none !important;
+}
+
+body.slayd-rejim .ds-qobiq {
+  max-width: none;
+  padding: 0;
+}
+
+/* Slayd rejimida bo'lim sarlavhalari ham ko'rinmaydi */
+body.slayd-rejim .ds-bolim-sarlavha {
+  display: none;
+}
+
+body.slayd-rejim .ds-bolim {
+  margin-bottom: 0;
+}

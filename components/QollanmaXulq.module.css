@@ -1,0 +1,35 @@
+.lupa {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 15, 22, 0.92);
+  display: grid;
+  place-items: center;
+  padding: var(--joy-6);
+  cursor: zoom-out;
+}
+
+.rasm {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--burchak-md);
+  background: #fff;
+}
+
+.yopish {
+  position: absolute;
+  top: var(--joy-3);
+  right: var(--joy-3);
+  width: var(--tegish);
+  height: var(--tegish);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: var(--olcham-lg);
+  line-height: 1;
+}
+
+.yopish:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

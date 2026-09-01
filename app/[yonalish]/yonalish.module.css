@@ -1,0 +1,26 @@
+.orqaga {
+  padding-top: var(--joy-5);
+  font-size: var(--olcham-md);
+}
+
+.orqaga a {
+  color: var(--rang-matn-2);
+  text-decoration: none;
+}
+
+.orqaga a:hover {
+  color: var(--rang-asosiy);
+}
+
+.bosh {
+  padding: var(--joy-3) 0 var(--joy-8);
+}
+
+.bosh h1 {
+  margin-bottom: var(--joy-2);
+}
+
+.tavsif {
+  color: var(--rang-matn-2);
+  margin-bottom: var(--joy-3);
+}
