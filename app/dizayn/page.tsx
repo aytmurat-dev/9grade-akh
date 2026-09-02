@@ -10,6 +10,7 @@ import {
   Qator,
   Qobiq,
   Royxat,
+  Tanlov,
   Tugma,
   Ustki,
   Yordam,
@@ -17,15 +18,22 @@ import {
 import uslub from './dizayn.module.css';
 
 export const metadata: Metadata = {
-  title: 'Dizayn sistema',
-  description: 'Saytdagi barcha standart bo’laklar bir joyda.',
+  title: 'Dizayn sistema ko\'rgazmasi',
+  description: 'Saytdagi barcha standart bo\'laklar bir joyda.',
   robots: { index: false, follow: false },
 };
 
 const RANGLAR = [
-  ['--rang-asosiy', 'asosiy'],
+  ['--rang-asosiy', 'asosiy (ko\'k)'],
   ['--rang-asosiy-toq', 'asosiy-toq'],
   ['--rang-asosiy-och', 'asosiy-och'],
+  ['--rang-iliq', 'iliq (sariq/to\'q sariq)'],
+  ['--rang-iliq-och', 'iliq-och'],
+  ['--rang-pastel-moviy-fon', 'pastel-moviy'],
+  ['--rang-pastel-sariq-fon', 'pastel-sariq'],
+  ['--rang-pastel-binafsha-fon', 'pastel-binafsha'],
+  ['--rang-pastel-yashil-fon', 'pastel-yashil'],
+  ['--rang-pastel-pushti-fon', 'pastel-pushti'],
   ['--rang-diqqat', 'diqqat'],
   ['--rang-yashil', 'yashil'],
   ['--rang-qizil', 'qizil'],
@@ -37,22 +45,15 @@ const RANGLAR = [
   ['--rang-kod-fon', 'kod-fon'],
 ];
 
-const OLCHAMLAR = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'];
-const JOYLAR = ['1', '2', '3', '4', '5', '6', '8', '10', '12', '16'];
+const OLCHAMLAR = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
+const JOYLAR = ['1', '2', '3', '4', '5', '6', '8', '10', '12', '16', '20'];
 
-/**
- * Dizayn sistemaning tirik ko'rgazmasi.
- *
- * Yangi bo'lak kerak bo'lsa: styles/ds.css ga sinf, components/ds ga
- * React o'rami, keyin shu sahifaga namuna qo'shing. Shunda sistema
- * "qog'ozda" emas, ishlaydigan holda qoladi.
- */
 export default function DizaynSahifasi() {
   return (
-    <Qobiq>
+    <Qobiq keng>
       <header className={uslub.bosh}>
         <Ustki>Ichki sahifa</Ustki>
-        <h1>Dizayn sistema</h1>
+        <h1>Educom Dizayn Sistema</h1>
         <Yordam>
           Saytdagi barcha sahifalar shu bo&apos;laklardan yig&apos;iladi. Rang,
           oraliq va shrift o&apos;lchamlari <code>styles/tokens.css</code> da;
@@ -63,7 +64,7 @@ export default function DizaynSahifasi() {
 
       {/* ---------------- Tokenlar ---------------- */}
 
-      <Bolim sarlavha="Ranglar">
+      <Bolim sarlavha="Ranglar palitrasi">
         <ul className={uslub.ranglar}>
           {RANGLAR.map(([token, nom]) => (
             <li key={token}>
@@ -82,7 +83,7 @@ export default function DizaynSahifasi() {
         <ul className={uslub.olchamlar}>
           {OLCHAMLAR.map((o) => (
             <li key={o} style={{ fontSize: `var(--olcham-${o})` }}>
-              <code>--olcham-{o}</code> — Sarlavha teglari va matn
+              <code>--olcham-{o}</code> — Sarlavha teglari va matn ierarxiyasi
             </li>
           ))}
         </ul>
@@ -99,57 +100,102 @@ export default function DizaynSahifasi() {
         </ul>
       </Bolim>
 
-      {/* ---------------- Matn ---------------- */}
-
-      <Bolim sarlavha="Matn">
-        <div className="ds-matn">
-          <h2>Ikkinchi darajali sarlavha</h2>
-          <p>
-            Oddiy paragraf. Ichida <code>kod bo&apos;lagi</code>, <strong>qalin
-            matn</strong> va <a href="#">havola</a> bo&apos;lishi mumkin.
-          </p>
-          <h3>Uchinchi darajali sarlavha</h3>
-          <ul>
-            <li>Ro&apos;yxatning birinchi bandi</li>
-            <li>Ikkinchi bandi</li>
-          </ul>
-          <blockquote>
-            <p>Iqtibos yoki muhim eslatma shunday ko&apos;rinadi.</p>
-          </blockquote>
-        </div>
-        <Yordam>
-          Qo&apos;llanma markdown&apos;i aynan shu uslublar bilan chiziladi —{' '}
-          <code>.ds-matn</code> o&apos;rami ichida.
-        </Yordam>
-      </Bolim>
-
       {/* ---------------- Tugmalar ---------------- */}
 
-      <Bolim sarlavha="Tugmalar">
+      <Bolim sarlavha="Tugmalar (Pill Buttons)">
         <div className={uslub.qator}>
-          <Tugma korinish="asosiy">Asosiy</Tugma>
-          <Tugma>Oddiy</Tugma>
-          <Tugma korinish="sokin">Sokin</Tugma>
-          <Tugma korinish="katta">Katta</Tugma>
+          <Tugma korinish="asosiy">Asosiy ko&apos;k</Tugma>
+          <Tugma korinish="iliq">Iliq sariq</Tugma>
+          <Tugma>Oddiy oq</Tugma>
+          <Tugma korinish="sokin">Sokin kulrang</Tugma>
+          <Tugma korinish="katta">Katta tugma</Tugma>
           <Tugma disabled>O&apos;chirilgan</Tugma>
         </div>
       </Bolim>
 
+      {/* ---------------- Tanlov ---------------- */}
+
+      <Bolim sarlavha="Tanlov (Select)">
+        <div className={uslub.qator}>
+          <Tanlov qiymat="2" aria-label="Namuna: variant raqami">
+            <option value="1">№1</option>
+            <option value="2">№2</option>
+            <option value="3">№3</option>
+          </Tanlov>
+
+          <Tanlov korinish="diqqat" qiymat="" aria-label="Namuna: tanlanmagan">
+            <option value="" disabled>
+              tanlang…
+            </option>
+            <option value="1">№1</option>
+          </Tanlov>
+        </div>
+        <Yordam>
+          &quot;diqqat&quot; ko&apos;rinishi — hali tanlanmagan maydon uchun.
+          Uy vazifasidagi raqam shu bo&apos;lakdan tanlanadi.
+        </Yordam>
+      </Bolim>
+
       {/* ---------------- Belgilar ---------------- */}
 
-      <Bolim sarlavha="Belgilar">
+      <Bolim sarlavha="Belgilar (Badges)">
         <Belgilar>
           <Belgi>Sokin</Belgi>
           <Belgi rang="asosiy">Asosiy</Belgi>
+          <Belgi rang="iliq">Iliq aksent</Belgi>
           <Belgi rang="diqqat">Diqqat</Belgi>
           <Belgi rang="yashil">Bajarildi</Belgi>
-          <Belgi rang="vaqt">3:40</Belgi>
+          <Belgi rang="vaqt">⏱ 3:40</Belgi>
         </Belgilar>
+      </Bolim>
+
+      {/* ---------------- Pastel Kartalar ---------------- */}
+
+      <Bolim sarlavha="Pastel va Oddiy Kartalar (Educom Cards)">
+        <div className={uslub.kartalarGrid}>
+          <Karta
+            rang="moviy"
+            sarlavha="01. Moviy Pastel Karta"
+            matn="Asosiy videodarslar va tushunchalar bloki uchun ishlatiladi."
+          />
+          <Karta
+            rang="sariq"
+            sarlavha="02. Sariq Pastel Karta"
+            matn="Pauza, to'xtash va diqqat talab qilinadigan mashqlar uchun."
+          />
+          <Karta
+            rang="binafsha"
+            sarlavha="03. Binafsha Pastel Karta"
+            matn="Shaxsiy variantlar va mustaqil ishlar uchun."
+          />
+          <Karta
+            rang="yashil"
+            sarlavha="04. Yashil Pastel Karta"
+            matn="Darsda tahlil va muvaffaqiyatli yakunlash bosqichlari uchun."
+          />
+        </div>
+
+        <div className={uslub.kartalarGrid} style={{ marginTop: 'var(--joy-4)' }}>
+          <Karta
+            href="/dizayn"
+            sarlavha="Havolali standart karta"
+            matn="Ustiga bosganda yo'nalishga o'tadi, hover animatsiyasi mavjud."
+          >
+            <Belgi rang="asosiy">Darslar ➔</Belgi>
+          </Karta>
+
+          <Panel>
+            <p>
+              <strong>Panel</strong> — yumshoq fonli quti. Izoh, ko&apos;rsatma yoki
+              ikkinchi darajali ma&apos;lumot uchun.
+            </p>
+          </Panel>
+        </div>
       </Bolim>
 
       {/* ---------------- Alertlar ---------------- */}
 
-      <Bolim sarlavha="Alertlar">
+      <Bolim sarlavha="Alertlar (Callouts)">
         <Alert turi="eslatma" sarlavha="Eslatma">
           <p>Foydali ma&apos;lumot yoki maslahat.</p>
         </Alert>
@@ -157,46 +203,25 @@ export default function DizaynSahifasi() {
           <p>Bu yerda xato qilish oson.</p>
         </Alert>
         <Alert turi="xato" sarlavha="Xato">
-          <p>Nimadir ishlamadi.</p>
+          <p>Nimadir ishlamadi yoki manzil noto&apos;g&apos;ri.</p>
         </Alert>
         <Alert turi="yashil" sarlavha="Bajarildi">
-          <p>Hammasi joyida.</p>
+          <p>Topshiriq muvaffaqiyatli topshirildi.</p>
         </Alert>
         <Alert turi="diqqat" sarlavha="Pauza">
           <p>Videoni to&apos;xtatib, topshiriqni bajaring.</p>
         </Alert>
       </Bolim>
 
-      {/* ---------------- Kartalar ---------------- */}
-
-      <Bolim sarlavha="Kartalar va panellar">
-        <div className={uslub.kartalar}>
-          <Karta sarlavha="Oddiy karta" matn="Havolasiz, ma'lumot uchun.">
-            <Belgi>ichida belgi</Belgi>
-          </Karta>
-          <Karta
-            href="/dizayn"
-            sarlavha="Bosiladigan karta"
-            matn="Havola sifatida ishlaydi, chap chetida rangli chiziq."
-          />
-        </div>
-        <Panel className={uslub.panel}>
-          <p>
-            <strong>Panel</strong> — yumshoq fonli quti. Izoh, ko&apos;rsatma yoki
-            ikkinchi darajali ma&apos;lumot uchun.
-          </p>
-        </Panel>
-      </Bolim>
-
       {/* ---------------- Ro'yxat ---------------- */}
 
-      <Bolim sarlavha="Bosiladigan qatorlar">
+      <Bolim sarlavha="Bosiladigan dars qatorlari">
         <Royxat>
           <li>
-            <Qator href="/dizayn" raqam={1} nomi="Birinchi dars mavzusi" izoh="11 daq" />
+            <Qator href="/dizayn" raqam={1} nomi="HTML hujjat tuzilishi" izoh="⏱ 11 daq" />
           </li>
           <li>
-            <Qator href="/dizayn" raqam={2} nomi="Ikkinchi dars mavzusi" izoh="9 daq" />
+            <Qator href="/dizayn" raqam={2} nomi="Teglar va atributlar" izoh="⏱ 9 daq" />
           </li>
         </Royxat>
       </Bolim>
@@ -229,8 +254,8 @@ export default function DizaynSahifasi() {
             </tr>
           </tbody>
         </Jadval>
-        <Yordam>Telefonda jadval gorizontal scroll bo&apos;ladi.</Yordam>
       </Bolim>
     </Qobiq>
   );
 }
+

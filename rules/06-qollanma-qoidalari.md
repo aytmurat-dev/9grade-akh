@@ -17,49 +17,100 @@ darslik chiqadi. Shuning uchun tuzilish har darsda bir xil.
 
 ## TUZILISHI
 
+Har bo'lim CPA tartibida yoziladi (`rules/01`, 1a-bo'lim): avval
+o'quvchi nima ko'rishi, keyin sxema, keyin qoida.
+
 ~~~markdown
 ## Nima o'rganamiz
 
-2–3 qator. Natija tilida: "Ushbu darsdan keyin siz ... qila olasiz."
+Natija tilida: "Ushbu darsdan keyin siz ... qila olasiz."
 
 ## Kerakli narsalar
 
-Dastur va versiyasi, oldingi darslar, tayyor fayllar.
+Dastur va versiyasi, oldingi bilim qayerdan kelgani, tayyor fayllar.
 
 ## 1. <Segment 1 nomi>
 
-Tushuntirish — to'liq gaplar, sabab bilan.
+**C — avval qilib ko'ring.** Aniq qadamlar: nima bosiladi, nima
+yoziladi. Keyin: ekranda nima paydo bo'ladi.
 
-Misol:
+**Tekshirib ko'ring:** <o'quvchi to'g'ri ketayotganini bilsin>
+
+**P — nima bo'ldi.** Sxema va uning izohi: brauzer nimani o'qidi,
+nimani bajardi.
+
+![Sxema](/img/veb/05/2.svg)
+
+**A — qoida.** Endi sintaksis va atama:
 
 ```javascript
-for (let i = 0; i < 5; i++) {
-  console.log(i);
-}
+console.log(<matn>);
 ```
 
-![Natija](/img/veb/05/1.png)
+| Bo'lak | Vazifasi |
+|---|---|
+| `console` | brauzerning konsoli |
 
-**E'tibor bering:** <muhim nuqta yoki tez-tez qilinadigan xato>
+**E'tibor bering:** <tez-tez qilinadigan xato — oldindan>
 
 ## 2. <Segment 2 nomi>
 
 ...
 
-## 3. <Segment 3 nomi>
-
-...
-
 ## Tez-tez uchraydigan xatolar
 
-| Xato | Sabab | Yechim |
-|---|---|---|
-| `i is not defined` | `let` yozilmagan | O'zgaruvchini e'lon qiling |
+| Xato | Nima ko'rinadi | Sabab | Yechim |
+|---|---|---|---|
 
 ## Qisqacha
 
-Takrorlash uchun: kod yoki qadamlar ro'yxati.
+Takrorlash uchun: qadamlar yoki kod ro'yxati.
+
+## Keyingi darsda
+
+Bir-ikki qator: hozir nimani qila olmaymiz va u qachon keladi.
 ~~~
+
+### Majburiy bo'laklar
+
+| Bo'lak | Nega |
+|---|---|
+| «Tekshirib ko'ring» | o'quvchi qayerda ekanini bilsin (LXD 5) |
+| Xatolar jadvali | xato — material, oldindan ko'rsatiladi (LXD 6) |
+| «Keyingi darsda» | 102 dars bitta zanjir bo'lsin (LXD 7) |
+| To'liq kod | nusxa olib ishga tushiriladigan holatda |
+
+### Yangi asbob birinchi marta ishlatilsa
+
+Dastur, papka, fayl saqlash — bularning har biri **alohida
+qadamlar bilan** yoziladi. «Faylni saqlang» yetarli emas: qaysi
+nomda, qaysi papkaga, qanday kengaytma bilan.
+
+Windowsdagi klassik tuzoq (Bloknot `.txt` qo'shib yuboradi) kabi
+joylar birinchi marta uchraganda albatta yozilsin — aks holda
+o'quvchi hamma qadamni to'g'ri bajarib ham natija ko'rmaydi.
+
+## UY VAZIFASI BILAN BOG'LIQLIK
+
+Uy vazifasi segmentlar bo'yicha taqsimlanadi (`rules/07`). Shuning
+uchun **har bo'lim o'z topshirig'ini bajarish uchun yetarli bo'lsin**:
+kerakli kod, qadamlar va tekshirish usuli o'sha bo'limda bo'lsin.
+
+Qo'llanma oxirida qisqa «Uy vazifasi» bo'limi yoziladi:
+
+~~~markdown
+## Uy vazifasi
+
+1. **Konsolda** (≈10 daqiqa) — 1 va 2-bo'lim: ...
+2. **O'z sahifangizda** (≈15 daqiqa) — 3-bo'lim: ...
+
+Topshiriq matni sahifaning pastida — raqamingizni tanlaganingizdan
+keyin chiqadi.
+~~~
+
+Bu yerda **topshiriqning o'zi yozilmaydi** — u har o'quvchida boshqa.
+Faqat nechta ish borligi, qancha vaqt ketishi va qaysi bo'limga
+tayanishi aytiladi.
 
 ## SEGMENT NOMLARI
 
@@ -92,7 +143,11 @@ Kod to'liq bo'lsin — o'quvchi nusxa olib ishga tushira olsin.
 
 ## UZUNLIGI
 
-10 daqiqalik video → 3–5 bet qo'llanma.
+**Video davomiyligiga solishtirilmaydi.** Qo'llanma mavzu to'liq
+yopilguncha yoziladi — necha bet bo'lsa ham.
 
-Qisqaroq bo'lsa — tushuntirish yetishmayapti.
-Uzunroq bo'lsa — segmentlar ko'payib ketgan, videoni bo'lish kerak.
+O'lchov bitta: *video ko'rmagan o'quvchi shu matndan o'rgana oladimi?*
+Agar biror qadamda «bu qanday qilinadi?» degan savol javobsiz qolsa —
+qo'llanma tugallanmagan.
+
+Qisqartirish uchun tushuntirishni emas, **takrorni** olib tashlang.

@@ -34,3 +34,15 @@ export const RAQAM_KALITI = 'oquvchi_raqami';
 export function yonalishmi(qiymat: string): qiymat is Yonalish {
   return (YONALISHLAR as readonly string[]).includes(qiymat);
 }
+
+/**
+ * Yo'nalish sahifasining manzili.
+ *
+ * Saytda alohida bosh sahifa yo'q: "/" — bu Veb yo'nalishi darslari.
+ * Shuning uchun veb uchun "/veb" emas, "/" qaytariladi. ("/veb" sahifasi
+ * ham yaratiladi, lekin unga hech qayerdan havola berilmaydi — u faqat
+ * manzilni qo'lda qisqartirganda 404 chiqmasligi uchun.)
+ */
+export function yonalishManzili(yonalish: Yonalish): string {
+  return yonalish === 'veb' ? '/' : `/${yonalish}`;
+}

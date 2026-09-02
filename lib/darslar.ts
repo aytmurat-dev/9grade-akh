@@ -7,8 +7,28 @@ import { YONALISHLAR, type Yonalish } from './sozlamalar';
 export { yonalishmi } from './sozlamalar';
 
 const KONTENT = path.join(process.cwd(), 'content', 'darslar');
+const PUBLIC = path.join(process.cwd(), 'public');
 
-/** Bir marta o'qib, build davomida qayta ishlatamiz. */
+/**
+ * Rasm fayli haqiqatan bormi.
+ *
+ * Skrinshotni o'qituvchi keyin joylaydi (rules/08), yo'l esa
+ * frontmatter'ga darrov yoziladi. Shu oraliqda slayd buzuq rasm
+ * belgisini emas, "kutilmoqda" qutisini ko'rsatsin.
+ */
+export function rasmBormi(yol: string): boolean {
+  return fs.existsSync(path.join(PUBLIC, yol.replace(/^\//, '')));
+}
+
+/**
+ * Bir marta o'qib, build davomida qayta ishlatamiz.
+ *
+ * Ishlab chiqish serverida kesh o'chirilgan: `.md` faylni tahrirlab
+ * sahifani yangilaganda o'zgarish darrov ko'rinsin. Aks holda dars
+ * yozayotganda har safar serverni qayta ishga tushirishga to'g'ri
+ * keladi — 102 ta dars uchun bu ko'p vaqt.
+ */
+const KESHLASH = process.env.NODE_ENV === 'production';
 const kesh = new Map<string, Dars>();
 
 /**
@@ -33,7 +53,7 @@ export function darsFayllari(yonalish: Yonalish): string[] {
 
 function faylniOqi(yonalish: Yonalish, fayl: string): Dars {
   const kalit = `${yonalish}/${fayl}`;
-  const keshda = kesh.get(kalit);
+  const keshda = KESHLASH ? kesh.get(kalit) : undefined;
   if (keshda) return keshda;
 
   const nisbiy = `content/darslar/${kalit}`;
@@ -56,7 +76,7 @@ function faylniOqi(yonalish: Yonalish, fayl: string): Dars {
   }
 
   const dars: Dars = { ...meta, qollanma: content.trim(), raqam, fayl: nisbiy };
-  kesh.set(kalit, dars);
+  if (KESHLASH) kesh.set(kalit, dars);
   return dars;
 }
 

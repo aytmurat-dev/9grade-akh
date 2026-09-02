@@ -1,94 +1,117 @@
+/* ------------------------------------------------------------------
+   Dars sahifasi.
+
+   Videodan keyingi "dars xaritasi" (vaqt belgilari ro'yxati) olib
+   tashlandi — pauza vaqtlari videoning o'zida va slaydlarda ko'rinadi,
+   sahifada takrorlanishi shart emas. Shu bilan .segmentlar* uslublari
+   ham o'chdi.
+   ------------------------------------------------------------------ */
+
+/* --- Breadcrumb --- */
+
 .orqaga {
-  padding-top: var(--joy-5);
-  font-size: var(--olcham-md);
+  padding: var(--joy-6) 0 var(--joy-4);
 }
 
-.orqaga a {
+.orqagaHavola {
   color: var(--rang-matn-2);
+  font-weight: var(--qalin-qalin);
   text-decoration: none;
 }
 
-.orqaga a:hover {
+.orqagaHavola:hover {
+  color: var(--rang-iliq);
+}
+
+/* --- Sarlavha --- */
+
+.bosh {
+  padding: var(--joy-5) 0 var(--joy-10);
+}
+
+.ustkiQator {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--joy-2);
+  margin-bottom: var(--joy-4);
+}
+
+.darsRaqamPill,
+.chorakPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: var(--burchak-sm);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-ulkan);
+  letter-spacing: var(--harf-keng);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.darsRaqamPill {
+  background: var(--rang-iliq);
+  color: #ffffff;
+}
+
+.chorakPill {
+  background: var(--rang-asosiy-och);
   color: var(--rang-asosiy);
 }
 
-.bosh {
-  padding: var(--joy-3) 0 var(--joy-6);
-}
-
-.bosh h1 {
-  margin: 0 0 var(--joy-3);
-}
-
-/* --- Video xaritasi (segmentlar) --- */
-
-.segmentlar {
-  list-style: none;
-  margin: var(--joy-4) 0 0;
-  padding: 0;
-  border: 1px solid var(--rang-chiziq);
-  border-radius: var(--burchak-md);
-  overflow: hidden;
-}
-
-.segmentlar li {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: var(--joy-3);
-  padding: var(--joy-3) var(--joy-4);
-  font-size: var(--olcham-md);
+.mavzuSarlavha {
+  max-width: 16ch;
+  /* Sarlavha — .bosh ning oxirgi bolasi. Pastdagi oraliqni .bosh ning
+     padding'i beradi, shuning uchun bu yerda margin kerak emas. */
   margin: 0;
-}
-
-.segmentlar li + li {
-  border-top: 1px solid var(--rang-chiziq);
-}
-
-.segmentNomi {
-  font-weight: var(--qalin-orta);
-  line-height: var(--qator-zich);
-}
-
-.tur {
-  font-size: var(--olcham-xs);
-  color: var(--rang-matn-2);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
+  font-family: var(--shrift-display);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
 }
 
 /* --- Oldingi / keyingi dars --- */
 
 .qoshni {
-  display: flex;
-  flex-direction: column;
-  gap: var(--joy-3);
+  display: grid;
+  gap: var(--joy-4);
+  margin-top: var(--joy-12);
+  padding-top: var(--joy-6);
+  border-top: 1px solid var(--rang-chiziq);
 }
 
 .qoshniHavola {
   display: block;
-  padding: var(--joy-4);
+  padding: var(--joy-5);
   border: 1px solid var(--rang-chiziq);
-  border-radius: var(--burchak-md);
-  text-decoration: none;
+  border-radius: var(--burchak-lg);
+  background: var(--rang-fon);
   color: var(--rang-matn);
+  text-decoration: none;
+  transition: border-color var(--tez), box-shadow var(--tez);
 }
 
 .qoshniHavola:hover {
-  background: var(--rang-asosiy-och);
-  border-color: var(--rang-asosiy);
+  border-color: var(--rang-iliq-chiziq);
+  box-shadow: var(--soya-2);
 }
 
 .qoshniHavola span {
   display: block;
+  margin-bottom: var(--joy-1);
+  color: var(--rang-iliq);
   font-size: var(--olcham-xs);
-  color: var(--rang-matn-2);
-  margin-bottom: 2px;
+  font-weight: var(--qalin-juda);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
 }
 
 .qoshniHavola strong {
-  font-size: var(--olcham-md);
+  display: block;
+  font-family: var(--shrift-display);
+  font-size: var(--olcham-lg);
+  font-weight: 400;
   line-height: var(--qator-zich);
 }
 
@@ -98,10 +121,7 @@
 
 @media (min-width: 640px) {
   .qoshni {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .qoshniHavola {
-    flex: 1;
+    grid-template-columns: 1fr 1fr;
   }
 }
+

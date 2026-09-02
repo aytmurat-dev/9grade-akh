@@ -28,7 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { chiq, kalitniOl, modelniOl, rasmSora, saqla } from './rasm-yadro.mjs';
+import { TAQIQ, chiq, kalitniOl, modelniOl, rasmSora, saqla } from './rasm-yadro.mjs';
 
 const ILDIZ = process.cwd();
 const KONTENT = path.join(ILDIZ, 'content', 'darslar');
@@ -115,12 +115,14 @@ function vazifalarniYig() {
    ------------------------------------------------------------------ */
 
 const USLUB = [
-  'Flat vector educational illustration for a school textbook.',
-  'Clean white background, generous whitespace, simple geometric shapes.',
-  'Palette: deep blue (#1a5fd4), warm orange accent (#b8400e), grey (#55657a) on white.',
+  'Flat vector educational illustration for a printed dossier document.',
+  'Warm paper background (#f0ebe2), generous whitespace, simple geometric shapes.',
+  'Strictly three colours: near-black ink (#1c1a17), warm grey (#8b8578)',
+  'and a single red accent (#b32b26) used only on the one element that matters.',
   'No gradients, no 3D, no shadows, no photorealism, no clutter.',
   'Wide 16:9 composition, centered, readable from a distance.',
   'The subject fills most of the frame — no large empty margins.',
+  TAQIQ,
 ].join(' ');
 
 /**

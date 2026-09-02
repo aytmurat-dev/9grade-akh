@@ -3,7 +3,9 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background: var(--rang-kod-fon);
-  border-radius: var(--burchak-lg);
+  border-radius: var(--burchak-xl);
+  border: 1px solid var(--rang-chiziq);
+  box-shadow: var(--soya-3);
   overflow: hidden;
 }
 
@@ -15,3 +17,4 @@
   border: 0;
   display: block;
 }
+

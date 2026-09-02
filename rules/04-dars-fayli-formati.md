@@ -52,12 +52,24 @@ slaydlar:
     vaqt: "1 daqiqa"
 
 uyVazifa:
-  shablon: "{SIKL} siklidan foydalanib {DIAPAZON} oralig'idagi {SHART} sonlarni chiqaring"
-  minimum: "Kod ishlashi va natijani konsolga chiqarishi"
-  qoshimcha: "Natijani sahifada ro'yxat ko'rinishida chiqaring"
+  # Topshiriqlar soni = ceil(segmentlar / 2) — bu yerda 3 segment -> 2 ta.
+  # Har segment aynan bitta topshiriqqa tushadi (rules/07).
+  topshiriqlar:
+    - qamrov: [1, 2]
+      daqiqa: 10
+      shablon: "{SIKL} siklidan foydalanib {DIAPAZON} oralig'idagi {SHART} sonlarni chiqaring"
+      minimum: "Kod ishlashi va natijani konsolga chiqarishi"
+      qoshimcha: "Natijani sahifada ro'yxat ko'rinishida chiqaring"
+
+    - qamrov: [3]
+      daqiqa: 15
+      shablon: "Shu siklga {AMAL} qo'shing va nima o'zgarganini izohda yozing"
+      minimum: "Sikl to'xtaydigan shart ko'rinib tursin"
+
+  # Variantlar jadvali bitta — barcha topshiriqlar uchun umumiy
   variantlar:
-    - { n: 1,  SIKL: "for",   DIAPAZON: "1–50",  SHART: "3 ga bo'linadigan" }
-    - { n: 2,  SIKL: "while", DIAPAZON: "1–40",  SHART: "juft" }
+    - { n: 1,  SIKL: "for",   DIAPAZON: "1–50",  SHART: "3 ga bo'linadigan", AMAL: "break" }
+    - { n: 2,  SIKL: "while", DIAPAZON: "1–40",  SHART: "juft",              AMAL: "continue" }
     # ... 12 tagacha
 ---
 
@@ -80,9 +92,12 @@ tur: "amaliy"
 bogliqDars: 7
 
 uyVazifa:
-  shablon: "{VALYUTA1} dan {VALYUTA2} ga o'giruvchi kalkulyator yozing"
-  minimum: "Kiritish maydoni, tugma, natija"
-  qoshimcha: "Teskari o'girish tugmasi"
+  # A darsida segment yo'q — qamrov ishlatilmaydi
+  topshiriqlar:
+    - daqiqa: 25
+      shablon: "{VALYUTA1} dan {VALYUTA2} ga o'giruvchi kalkulyator yozing"
+      minimum: "Kiritish maydoni, tugma, natija"
+      qoshimcha: "Teskari o'girish tugmasi"
   variantlar:
     - { n: 1, VALYUTA1: "so'm", VALYUTA2: "dollar" }
     # ... 12 tagacha
@@ -113,9 +128,11 @@ baholash:
     ball: 3
 
 uyVazifa:
-  shablon: "{TEMA} mavzusida ilova yarating"
-  minimum: "Kamida 2 ta ekran, Intent bilan bog'langan"
-  qoshimcha: "Ma'lumot saqlash"
+  topshiriqlar:
+    - daqiqa: 25
+      shablon: "{TEMA} mavzusida ilova yarating"
+      minimum: "Kamida 2 ta ekran, Intent bilan bog'langan"
+      qoshimcha: "Ma'lumot saqlash"
   variantlar:
     - { n: 1, TEMA: "Kitob ro'yxati" }
     # ... 12 tagacha
@@ -150,13 +167,23 @@ Build paytida tekshirilsin, xato bo'lsa build to'xtasin:
 5. `davomiylik` ≤ 20
 6. `uyVazifa.variantlar` uzunligi **aynan 12**
 7. Har variantda `n` bor, 1..12, takrorlanmaydi
-8. `shablon` ichidagi har bir `{PARAMETR}` **barcha** variantlarda mavjud
+8. `shablon`, `minimum`, `qoshimcha` ichidagi har bir
+   `{PARAMETR}` **barcha** variantlarda mavjud
 9. `segmentlar` dagi `tur` ∈ {`nazariy`, `amaliy`}
 10. `segmentlar` da `tur: "amaliy"` soni ≤ 2
-11. `slaydlar` uzunligi ≤ 12
+11. `slaydlar` uzunligi ≤ 16
 12. `pauza: true` slaydlar soni = `segmentlar` uzunligi
 13. `video` — 11 belgili YouTube ID
 14. `bogliqDars` mavjud faylga ishora qiladi
+15. `uyVazifa.topshiriqlar` soni = ceil(segmentlar / 2)
+16. Har segment aynan bitta `qamrov` da uchraydi — tushib qolgani ham,
+    ikki marta kelgani ham xato
+17. Bitta `qamrov` da 2 tadan ko'p segment bo'lmaydi
+18. `daqiqa` 5..25, barcha topshiriqlar jami ≤ 35
 
 8-qoida muhim: shablon `{MAVZU}` deb yozilib, variantda `MAVZU`
 bo'lmasa, o'quvchi topshiriqda `{MAVZU}` so'zini ko'radi.
+
+15–18 uy vazifasini darsning hajmi va mazmuniga bog'laydi
+(`rules/07`): kichik darsda bitta topshiriq, kattasida ikkita, va
+darsda o'tilgan har bir segment mashq qilinadi.

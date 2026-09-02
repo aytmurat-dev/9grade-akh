@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Siz yozasiz, brauzer bajaradi, konsol javob qaytaradi">
+  <title>Buyruq va javob</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 22px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .18em; }
+    .kod    { font: 500 24px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .qizil  { font: 500 24px 'IBM Plex Mono', Consolas, monospace; fill: #b32b26; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. SIZ YOZASIZ -->
+  <text class="yorliq" x="20" y="70">1 · SIZ YOZASIZ</text>
+  <rect class="quti" x="20" y="96" width="330" height="150"/>
+  <text class="kod" x="44" y="150">&gt; console.<tspan fill="#b32b26">log</tspan>(</text>
+  <text class="kod" x="60" y="190">    "Salom, Nukus!"</text>
+  <text class="kod" x="44" y="222">  );</text>
+
+  <!-- o'q -->
+  <path class="oq" d="M370 171 H420"/>
+  <path d="M420 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. BRAUZER BAJARADI -->
+  <text class="yorliq" x="440" y="70">2 · BRAUZER</text>
+  <rect class="quti" x="440" y="96" width="240" height="150"/>
+  <circle cx="560" cy="160" r="34" fill="none" stroke="#b32b26" stroke-width="2.5"/>
+  <path d="M548 160 l9 9 l17 -19" fill="none" stroke="#b32b26" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="yorliq" x="560" y="220" text-anchor="middle" font-size="19">DARROV</text>
+
+  <!-- o'q -->
+  <path class="oq" d="M700 171 H750"/>
+  <path d="M750 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. KONSOL JAVOB BERADI -->
+  <text class="yorliq" x="770" y="70">3 · JAVOB</text>
+  <rect class="quti" x="770" y="96" width="330" height="150"/>
+  <text class="kod" x="794" y="180">Salom, Nukus!</text>
+  <rect x="794" y="196" width="180" height="2" fill="#b32b26"/>
+
+  <!-- pastdagi izoh chizig'i -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">SAHIFA YANGILANMAYDI · KOD DARROV BAJARILADI</text>
+</svg>

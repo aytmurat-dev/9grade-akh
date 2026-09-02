@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Brauzer HTML faylni yuqoridan pastga o'qiydi, script tegida kod.js faylini ochadi va bajaradi">
+  <title>Brauzer qanday o'qidi</title>
+
+  <style>
+    .yorliq { font: 400 22px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .18em; }
+    .kod    { font: 500 22px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. birinchi.html -->
+  <text class="yorliq" x="20" y="70">1 · BIRINCHI.HTML</text>
+  <rect class="quti" x="20" y="96" width="380" height="176"/>
+  <text class="kod" x="42" y="134">&lt;body&gt;</text>
+  <text class="kod" x="62" y="170">  &lt;h1&gt; Mening sahifam &lt;/h1&gt;</text>
+  <text class="kod" x="62" y="210" fill="#b32b26">  &lt;script src="kod.js"&gt;</text>
+  <text class="kod" x="42" y="248">&lt;/body&gt;</text>
+
+  <!-- yuqoridan pastga o'qish belgisi -->
+  <path class="oq" d="M32 120 V240" stroke-dasharray="6 8"/>
+  <path d="M32 240 l-6 -12 h12 z" fill="#8b8578"/>
+
+  <!-- o'q: script -> kod.js -->
+  <path class="oq" d="M410 195 H468"/>
+  <path d="M468 195 l-12 -7 v14 z" fill="#8b8578"/>
+  <text class="yorliq" x="415" y="176" font-size="18" fill="#b32b26">src</text>
+
+  <!-- 2. kod.js -->
+  <text class="yorliq" x="488" y="70">2 · KOD.JS</text>
+  <rect class="quti" x="488" y="96" width="330" height="176"/>
+  <text class="kod" x="510" y="140" fill="#8b8578">// izoh</text>
+  <text class="kod" x="510" y="180">console.<tspan fill="#b32b26">log</tspan>("...");</text>
+  <text class="kod" x="510" y="220"><tspan fill="#b32b26">alert</tspan>("Salom!");</text>
+
+  <!-- o'q -->
+  <path class="oq" d="M828 195 H886"/>
+  <path d="M886 195 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. natija -->
+  <text class="yorliq" x="906" y="70">3 · EKRANDA</text>
+  <rect class="quti" x="906" y="96" width="194" height="176"/>
+  <rect x="926" y="140" width="154" height="76" fill="#f0ebe2" stroke="#b32b26" stroke-width="2"/>
+  <text class="kod" x="946" y="176" font-size="20">Salom!</text>
+  <rect x="1018" y="188" width="46" height="18" fill="#b32b26"/>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 300 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="330">QATOR-MA-QATOR, YUQORIDAN PASTGA</text>
+</svg>

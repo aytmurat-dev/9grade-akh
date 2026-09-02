@@ -1,19 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="HTML hujjat tuzilishi sxemasi">
-  <rect width="1200" height="675" fill="#f4f6f9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 58 1120 372" width="1120" height="372" role="img" aria-label="HTML skelet, CSS ko'rinish, JavaScript harakat">
+  <title>Uch til — uch vazifa</title>
 
-  <rect x="90" y="70" width="1020" height="535" rx="20" fill="#ffffff" stroke="#1a5fd4" stroke-width="4"/>
-  <text x="120" y="122" font-family="Consolas, monospace" font-size="34" fill="#1a5fd4">&lt;html&gt;</text>
+  <!--
+    Slayd dizayni "dossier" konsepsiyasida (rules/11): qog'oz fon,
+    siyoh chiziqlar, bitta qizil aksent. Fon shaffof — slayddagi
+    qog'oz o'zi ko'rinib turadi.
+  -->
+  <style>
+    .nom    { font: 500 34px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; letter-spacing: .12em; }
+    .izoh   { font: 400 26px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .1em; }
+    .plita  { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .skelet { fill: none; stroke: #a9a396; stroke-width: 3; }
+    .toldi  { fill: #1c1a17; }
+    .ochroq { fill: #b8b1a2; }
+  </style>
 
-  <rect x="140" y="160" width="920" height="150" rx="14" fill="#eaf1fd" stroke="#1a5fd4" stroke-width="2"/>
-  <text x="170" y="205" font-family="Consolas, monospace" font-size="30" fill="#12459c">&lt;head&gt;</text>
-  <text x="170" y="255" font-family="-apple-system, Segoe UI, sans-serif" font-size="26" fill="#55657a">brauzer uchun ma'lumot</text>
-  <text x="170" y="292" font-family="-apple-system, Segoe UI, sans-serif" font-size="24" fill="#8b98a8">title, charset, uslublar — ekranda ko'rinmaydi</text>
+  <!-- ================= 1. HTML — skelet ================= -->
+  <g transform="translate(70 96)">
+    <text class="nom" x="0" y="0">HTML</text>
+    <text class="izoh" x="0" y="42">skelet</text>
 
-  <rect x="140" y="340" width="920" height="215" rx="14" fill="#fdf0e8" stroke="#b8400e" stroke-width="2"/>
-  <text x="170" y="385" font-family="Consolas, monospace" font-size="30" fill="#b8400e">&lt;body&gt;</text>
-  <text x="170" y="435" font-family="-apple-system, Segoe UI, sans-serif" font-size="26" fill="#55657a">foydalanuvchi ko'radigan hamma narsa</text>
-  <text x="170" y="480" font-family="Consolas, monospace" font-size="26" fill="#16202c">&lt;h1&gt; sarlavha &lt;/h1&gt;</text>
-  <text x="170" y="520" font-family="Consolas, monospace" font-size="26" fill="#16202c">&lt;p&gt; matn &lt;/p&gt;</text>
+    <rect class="plita" x="0" y="80" width="300" height="260"/>
+    <rect class="skelet" x="32" y="104" width="180" height="30"/>
+    <rect class="skelet" x="32" y="152" width="236" height="14"/>
+    <rect class="skelet" x="32" y="176" width="236" height="14"/>
+    <rect class="skelet" x="32" y="200" width="150" height="14"/>
+    <rect class="skelet" x="32" y="250" width="150" height="46"/>
+    <text x="52" y="280" font-family="'IBM Plex Mono', Consolas, monospace" font-size="21" fill="#8b8578">button</text>
+  </g>
 
-  <text x="120" y="585" font-family="Consolas, monospace" font-size="34" fill="#1a5fd4">&lt;/html&gt;</text>
+  <!-- ================= 2. CSS — ko'rinish ================= -->
+  <g transform="translate(450 96)">
+    <text class="nom" x="0" y="0">CSS</text>
+    <text class="izoh" x="0" y="42">ko'rinish</text>
+
+    <rect class="plita" x="0" y="80" width="300" height="260"/>
+    <rect class="toldi" x="32" y="104" width="180" height="30"/>
+    <rect class="ochroq" x="32" y="152" width="236" height="14"/>
+    <rect class="ochroq" x="32" y="176" width="236" height="14"/>
+    <rect class="ochroq" x="32" y="200" width="150" height="14"/>
+    <rect class="toldi" x="32" y="250" width="150" height="46" rx="27"/>
+  </g>
+
+  <!-- ================= 3. JavaScript — harakat ================= -->
+  <g transform="translate(830 96)">
+    <text class="nom" x="0" y="0">JavaScript</text>
+    <text class="izoh" x="0" y="42">harakat</text>
+
+    <rect class="plita" x="0" y="80" width="300" height="260"/>
+    <rect class="toldi" x="32" y="104" width="180" height="30"/>
+    <rect class="ochroq" x="32" y="152" width="236" height="14"/>
+    <rect class="ochroq" x="32" y="176" width="236" height="14"/>
+
+    <!-- kod o'zgartirgan qator — yagona qizil joy -->
+    <rect x="32" y="196" width="150" height="26" fill="#f7ece9" stroke="#b32b26" stroke-width="2"/>
+    <text x="42" y="215" font-family="'IBM Plex Mono', Consolas, monospace" font-size="17" fill="#b32b26">12 : 30</text>
+
+    <!-- bosilgan tugma -->
+    <rect x="32" y="250" width="150" height="46" rx="27" fill="#b32b26"/>
+
+    <!-- sichqoncha ko'rsatkichi -->
+    <g transform="translate(150 280)">
+      <path d="M0 0 L0 30 L8 23 L14 36 L21 33 L15 20 L25 19 Z" fill="#1c1a17" stroke="#f0ebe2" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <!-- harakat yoyi: tugmadan o'zgargan qatorga -->
+    <path d="M110 246 C110 228 150 226 168 218" fill="none" stroke="#8b8578" stroke-width="2.5" stroke-dasharray="7 7"/>
+    <path d="M168 218 l-14 -1 l7 10 z" fill="#8b8578"/>
+  </g>
 </svg>

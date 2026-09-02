@@ -7,6 +7,9 @@ next-env.d.ts
 # scripts/uy-vazifa-json.mjs build paytida yaratadi
 public/uy/
 
+# javoblar kaliti — deploy'ga tushmasin (rules/07)
+kalitlar/
+
 .DS_Store
 .vercel
 .env*

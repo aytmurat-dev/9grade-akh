@@ -19,7 +19,7 @@ desa, quyidagi tartibda ishlang.
    → D (yangi mavzu) | A (amaliy) | L (loyiha) | BSB
 
 3. Dars turiga mos qoidani o'qing:
-   D   → 03 → 05 → 06 → 07
+   D   → 03 → 05 → 11 → 06 → 07
    A   → 07 (faqat topshiriq sahifasi)
    L   → 07 (loyiha shartlari)
    BSB → sahifa yaratilmaydi, foydalanuvchini ogohlantiring
@@ -32,12 +32,19 @@ desa, quyidagi tartibda ishlang.
 
 6. Dars faylini yozing (04-dars-fayli-formati.md)
    → content/darslar/<yonalish>/<NN>.md
+   → uchta bo'lak ALOHIDA ishlanadi, biri ikkinchisidan qolib ketmasin:
+        slayd        (05 + 11)
+        qo'llanma    (06)
+        uy vazifasi  (07)
 
 7. Kerakli rasmlarni generatsiya qiling (08, Gemini API)
 
 8. 10-double-check.md ro'yxatidan o'ting
 
 9. npm run build ishlashini tekshiring
+
+10. QAYTA TEKSHIRUV — uchta bo'lakni yana bir bor o'qing
+    (10-double-check.md, "IKKINCHI O'QISH")
 ```
 
 ## QOIDA FAYLLARI
@@ -54,6 +61,7 @@ desa, quyidagi tartibda ishlang.
 | `08-rasm-va-skrinshot.md` | Rasm kerak bo'lganda |
 | `09-kirish-chiptasi.md` | Faqat so'ralganda — saytga tushmaydi |
 | `10-double-check.md` | Har doim, oxirida |
+| `11-slayd-dizayni.md` | Slayd yozilayotganda — ko'rinish konsepsiyasi |
 
 ## MUHIM QOIDALAR
 
@@ -74,3 +82,14 @@ desa, quyidagi tartibda ishlang.
    varianti render qilinsin.
 
 6. Yozilgan har bir fayldan keyin `npm run build` ishlashini tekshiring.
+
+7. **Uchta bo'lak — darsning o'zi.** Slayd, qo'llanma va uy vazifasi —
+   uchalasi ham alohida ishlanadi va uchalasi ham eng yaxshi holatga
+   yetkaziladi. Biri "bor bo'lsa bo'ldi" darajasida qolsa, dars
+   ishlamaydi: slayd videoni, qo'llanma mustaqil o'qishni, uy vazifasi
+   esa esda qolishini ta'minlaydi.
+
+8. **Tugatgandan keyin qayta o'qing.** Birinchi yozuv — qoralama.
+   Fayl tayyor bo'lib, build o'tgandan keyin uchala bo'lakni ikkinchi
+   marta o'qib chiqing (`rules/10`, "IKKINCHI O'QISH") va toping:
+   tushib qolgan qadam, javobsiz savol, mashq qilinmagan mavzu.

@@ -1,129 +1,38 @@
-/* ==================================================================
-   DIZAYN SISTEMA — 1-qavat: tokenlar
-   ------------------------------------------------------------------
-   Bu fayldagi qiymatlardan tashqari hech qayerda "qo'lda" rang,
-   oraliq yoki shrift o'lchami yozilmaydi. Biror narsani butun sayt
-   bo'ylab o'zgartirmoqchi bo'lsangiz — shu yerni tahrirlang.
-
-   Nomlash:
-     --rang-*     rang
-     --joy-*      oraliq (padding, margin, gap)
-     --olcham-*   shrift o'lchami
-     --qator-*    qator balandligi
-     --qalin-*    shrift qalinligi
-     --burchak-*  radius
-     --soya-*     soya
-     --keng-*     kenglik chegaralari
-   ================================================================== */
-
 :root {
-  /* ---------------- Rang: asos ---------------- */
-  --rang-fon: #ffffff;
-  --rang-fon-2: #f4f6f9;
-  --rang-fon-3: #e9edf3;
+  /* Warm editorial palette: one deep ink and one optimistic accent. */
+  --rang-fon: #fffdf8; --rang-fon-2: #f6f0e5; --rang-fon-3: #ece3d3;
+  --rang-matn: #16234a; --rang-matn-2: #536079; --rang-matn-3: #8a91a2;
+  --rang-chiziq: #dfd6c7; --rang-chiziq-toq: #c9bdaa;
+  --rang-asosiy: #263b82; --rang-asosiy-toq: #18275e; --rang-asosiy-och: #e9ecf8; --rang-asosiy-chiziq: #c9d0eb;
+  --rang-iliq: #ee6e53; --rang-iliq-toq: #c94f38; --rang-iliq-och: #fff0e9; --rang-iliq-chiziq: #f3c7b9;
+  --rang-pastel-moviy-fon: #e9ecf8; --rang-pastel-moviy-chiziq: #c9d0eb; --rang-pastel-moviy-matn: #263b82;
+  --rang-pastel-sariq-fon: #fff4d8; --rang-pastel-sariq-chiziq: #ecd39d; --rang-pastel-sariq-matn: #875f12;
+  --rang-pastel-binafsha-fon: #f1eafa; --rang-pastel-binafsha-chiziq: #dacced; --rang-pastel-binafsha-matn: #66418b;
+  --rang-pastel-yashil-fon: #e9f3e9; --rang-pastel-yashil-chiziq: #c4dbc4; --rang-pastel-yashil-matn: #396a52;
+  --rang-pastel-pushti-fon: #fff0f0; --rang-pastel-pushti-chiziq: #f0caca; --rang-pastel-pushti-matn: #a14b54;
+  --rang-diqqat: #bc6235; --rang-diqqat-och: #fff1e8; --rang-diqqat-chiziq: #efc8b1;
+  --rang-yashil: #397253; --rang-yashil-och: #eaf5ec; --rang-yashil-chiziq: #bfdbbf;
+  --rang-qizil: #b84044; --rang-qizil-och: #fff0f0; --rang-qizil-chiziq: #f2c6c7;
+  --rang-sariq: #956c16; --rang-sariq-och: #fff8e5; --rang-sariq-chiziq: #edda9d;
+  --rang-kod-fon: #17213f; --rang-kod-matn: #f7f3ec; --rang-kod-panel: #24305a; --rang-kod-chiziq: #3d4b77; --rang-kod-och: #b9c3e1;
+  --joy-1: 4px; --joy-2: 8px; --joy-3: 12px; --joy-4: 16px; --joy-5: 20px; --joy-6: 24px; --joy-8: 32px; --joy-10: 40px; --joy-12: 56px; --joy-16: 72px; --joy-20: 96px;
+  --shrift: 'Avenir Next', 'Segoe UI', Arial, sans-serif; --shrift-display: Georgia, 'Times New Roman', serif; --shrift-kod: 'Cascadia Mono', Consolas, monospace;
+  --olcham-xs: .75rem; --olcham-sm: .875rem; --olcham-md: 1rem; --olcham-lg: 1.125rem; --olcham-xl: 1.45rem; --olcham-2xl: 2rem; --olcham-3xl: 2.85rem; --olcham-4xl: 4.25rem;
+  --qator-zich: 1.08; --qator-orta: 1.55; --qator-keng: 1.72; --qalin-oddiy: 400; --qalin-orta: 500; --qalin-qalin: 600; --qalin-juda: 700; --qalin-ulkan: 800; --harf-zich: -.035em; --harf-keng: .1em;
+  --burchak-xs: 4px; --burchak-sm: 8px; --burchak-md: 14px; --burchak-lg: 22px; --burchak-xl: 32px; --burchak-toliq: 9999px;
+  --soya-1: 0 2px 0 rgba(22,35,74,.04); --soya-2: 0 18px 38px -24px rgba(22,35,74,.32); --soya-3: 0 28px 55px -28px rgba(22,35,74,.38); --soya-iliq: 0 14px 24px -14px rgba(238,110,83,.55); --soya-asosiy: 0 14px 26px -15px rgba(38,59,130,.6);
 
-  --rang-matn: #16202c;
-  --rang-matn-2: #55657a;
-  --rang-matn-3: #8b98a8;
+  /* --- Slayd dizayni: "dossier" (arxiv fayli) — qarang rules/11 --- */
+  --slayd-qogoz: #f0ebe2; --slayd-qogoz-toq: #e6e0d5; --slayd-chiziq: #cdc5b4; --slayd-teg-chiziq: #c8c0af;
+  --slayd-siyoh: #1c1a17; --slayd-matn: #4a443a; --slayd-sokin: #8b8578; --slayd-sokin-2: #9a9487; --slayd-burchak: #8b8578;
+  --slayd-qizil: #b32b26; --slayd-qizil-toq: #8f221e;
+  --slayd-qora: #111110; --slayd-qora-chiziq: #3a3833; --slayd-qora-burchak: #6b665c;
+  --slayd-qora-siyoh: #f2ede4; --slayd-qora-matn: #b9b2a6; --slayd-qora-sokin: #7d786d; --slayd-qora-qizil: #c1443c;
+  --slayd-tolqin: repeating-linear-gradient(45deg, rgba(28,26,23,.028) 0 1px, rgba(0,0,0,0) 1px 10px);
+  --slayd-tolqin-qora: repeating-linear-gradient(45deg, rgba(242,237,228,.035) 0 1px, rgba(0,0,0,0) 1px 10px);
+  --shrift-mono: var(--shrift-mono-yuklangan, 'IBM Plex Mono'), 'Cascadia Mono', Consolas, monospace;
+  --slayd-shrift: Helvetica, 'Helvetica Neue', Arial, sans-serif;
 
-  --rang-chiziq: #dde3ea;
-  --rang-chiziq-toq: #c3ccd8;
-
-  /* ---------------- Rang: asosiy (ko'k) ---------------- */
-  --rang-asosiy: #1a5fd4;
-  --rang-asosiy-toq: #12459c;
-  --rang-asosiy-och: #eaf1fd;
-
-  /* ---------------- Rang: holatlar ---------------- */
-  /* diqqat — pauza, to'xtash, e'tibor */
-  --rang-diqqat: #b8400e;
-  --rang-diqqat-och: #fdf0e8;
-  --rang-diqqat-chiziq: #f0c7b1;
-
-  /* muvaffaqiyat — bajarildi, to'g'ri */
-  --rang-yashil: #1c7a4a;
-  --rang-yashil-och: #e8f6ee;
-  --rang-yashil-chiziq: #b6ddc7;
-
-  /* xato — noto'g'ri, ishlamadi */
-  --rang-qizil: #b3261e;
-  --rang-qizil-och: #fdeceb;
-  --rang-qizil-chiziq: #f3c0bd;
-
-  /* ogohlantirish — ehtiyot bo'ling */
-  --rang-sariq: #8a6100;
-  --rang-sariq-och: #fff8e6;
-  --rang-sariq-chiziq: #ecd9a3;
-
-  /* ---------------- Rang: kod ---------------- */
-  --rang-kod-fon: #1b2430;
-  --rang-kod-matn: #e7edf5;
-  --rang-kod-panel: #131a24;
-  --rang-kod-chiziq: #2a3646;
-  --rang-kod-och: #93a4b8;
-
-  /* ---------------- Oraliq: 4px asosida ---------------- */
-  --joy-1: 4px;
-  --joy-2: 8px;
-  --joy-3: 12px;
-  --joy-4: 16px;
-  --joy-5: 20px;
-  --joy-6: 24px;
-  --joy-8: 32px;
-  --joy-10: 40px;
-  --joy-12: 48px;
-  --joy-16: 64px;
-
-  /* ---------------- Shrift ---------------- */
-  --shrift: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  --shrift-kod: 'SF Mono', 'Cascadia Mono', 'JetBrains Mono', Consolas,
-    'Liberation Mono', monospace;
-
-  /* Asos 18px — telefonda o'qishga qulay */
-  --olcham-xs: 0.78rem;
-  --olcham-sm: 0.875rem;
-  --olcham-md: 1rem;
-  --olcham-lg: 1.125rem;
-  --olcham-xl: 1.35rem;
-  --olcham-2xl: 1.7rem;
-  --olcham-3xl: 2.1rem;
-
-  --qator-zich: 1.25;
-  --qator-orta: 1.5;
-  --qator-keng: 1.75;
-
-  --qalin-oddiy: 400;
-  --qalin-orta: 600;
-  --qalin-qalin: 700;
-  --qalin-juda: 800;
-
-  --harf-zich: -0.015em;
-  --harf-keng: 0.1em;
-
-  /* ---------------- Shakl ---------------- */
-  --burchak-sm: 6px;
-  --burchak-md: 12px;
-  --burchak-lg: 18px;
-  --burchak-toliq: 999px;
-
-  --soya-1: 0 1px 2px rgba(22, 32, 44, 0.06);
-  --soya-2: 0 6px 20px rgba(22, 32, 44, 0.1);
-
-  /* ---------------- O'lchov ---------------- */
-  --keng-matn: 780px;
-  --keng-keng: 1100px;
-  --tegish: 46px; /* barmoq bilan bosiladigan eng kichik o'lcham */
-
-  --tez: 0.15s ease;
+  --keng-matn: 900px; --keng-keng: 1240px; --tegish: 48px; --tez: .24s cubic-bezier(.2,.8,.2,1);
 }
-
-/* Kattaroq ekranda shrift biroz o'sadi — tokenlarning o'zi o'zgaradi,
-   komponentlarga tegmaymiz. */
-@media (min-width: 640px) {
-  :root {
-    --olcham-xl: 1.5rem;
-    --olcham-2xl: 1.9rem;
-    --olcham-3xl: 2.5rem;
-  }
-}
+@media (min-width: 640px) { :root { --olcham-xl: 1.55rem; --olcham-2xl: 2.25rem; --olcham-3xl: 3.25rem; --olcham-4xl: 4.75rem; } }

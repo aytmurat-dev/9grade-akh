@@ -1,9 +1,11 @@
 .bosh {
-  padding: var(--joy-10) 0 var(--joy-8);
+  padding: var(--joy-8) 0 var(--joy-8);
 }
 
 .bosh h1 {
   margin-bottom: var(--joy-3);
+  font-size: var(--olcham-3xl);
+  font-weight: var(--qalin-ulkan);
 }
 
 .ranglar {
@@ -11,21 +13,26 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: var(--joy-3);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--joy-4);
 }
 
 .ranglar li {
   margin: 0;
   font-size: var(--olcham-sm);
+  background: var(--rang-fon-2);
+  border: 1px solid var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  padding: var(--joy-3);
+  box-shadow: var(--soya-1);
 }
 
 .rangQuti {
   display: block;
-  height: 48px;
+  height: 54px;
   border: 1px solid var(--rang-chiziq);
-  border-radius: var(--burchak-md);
-  margin-bottom: var(--joy-1);
+  border-radius: var(--burchak-sm);
+  margin-bottom: var(--joy-2);
 }
 
 .olchamlar,
@@ -36,8 +43,9 @@
 }
 
 .olchamlar li {
-  margin-bottom: var(--joy-2);
+  margin-bottom: var(--joy-3);
   line-height: var(--qator-zich);
+  font-weight: var(--qalin-qalin);
 }
 
 .joylar li {
@@ -52,7 +60,7 @@
   display: block;
   height: 16px;
   background: var(--rang-asosiy);
-  border-radius: 2px;
+  border-radius: 4px;
   flex: none;
 }
 
@@ -63,18 +71,15 @@
   align-items: center;
 }
 
-.kartalar {
+.kartalarGrid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--joy-4);
-  margin-bottom: var(--joy-4);
-}
-
-.panel {
-  margin-top: var(--joy-4);
 }
 
 @media (min-width: 640px) {
-  .kartalar {
+  .kartalarGrid {
     grid-template-columns: 1fr 1fr;
   }
 }
+

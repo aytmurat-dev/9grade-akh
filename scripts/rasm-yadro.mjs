@@ -17,6 +17,20 @@ export const KENGLIK = 1200;
 export const SIFAT = 82;
 export const SUKUT_MODEL = 'gemini-3.1-flash-image';
 
+/**
+ * Har bir promptga qo'shiladigan taqiq.
+ *
+ * Generator rasm burchagiga o'z "imzosini" — yulduzcha, logotip yoki
+ * suv belgisi — qo'shib yuborishi mumkin. Darslikda bunday belgi
+ * o'quvchini chalg'itadi, shuning uchun ikkala skript ham buni
+ * promptda alohida taqiqlaydi.
+ */
+export const TAQIQ = [
+  'Do not draw any logo, brand mark, watermark, signature, badge or',
+  'sparkle/star AI mark anywhere in the image — not in the corners,',
+  'not on any object, not in the background.',
+].join(' ');
+
 export function chiq(xabar) {
   console.error(`\n[rasm] ${xabar}\n`);
   process.exit(1);
@@ -90,11 +104,11 @@ export async function rasmSora(kalit, model, prompt) {
  * bo'lsa 15-40 KB ga tushadi, o'quvchi telefonda tez ochadi.
  * Alohida siqish buyrug'i kerak emas.
  */
-export async function saqla(xom, nishon) {
+export async function saqla(xom, nishon, kenglik = KENGLIK) {
   fs.mkdirSync(path.dirname(nishon), { recursive: true });
   const kengaytma = path.extname(nishon).toLowerCase();
 
-  let quvur = sharp(xom).resize({ width: KENGLIK, withoutEnlargement: true });
+  let quvur = sharp(xom).resize({ width: kenglik, withoutEnlargement: true });
   if (kengaytma === '.png') quvur = quvur.png({ compressionLevel: 9 });
   else if (kengaytma === '.jpg' || kengaytma === '.jpeg') quvur = quvur.jpeg({ quality: SIFAT });
   else quvur = quvur.webp({ quality: SIFAT });

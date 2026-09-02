@@ -1,48 +1,36 @@
 import type { Metadata, Viewport } from 'next';
-import Link from 'next/link';
-// Dizayn sistema — tartib muhim: tokenlar -> asos -> komponentlar
+import { IBM_Plex_Mono } from 'next/font/google';
+import Navbar from '@/components/Navbar';
 import '@/styles/tokens.css';
 import '@/styles/asos.css';
 import '@/styles/ds.css';
 import uslub from './layout.module.css';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Informatika 9-sinf — videodarslar',
-    template: '%s · Informatika 9-sinf',
-  },
-  description:
-    "9-sinf informatika videodarslari: uyda video ko'riladi, uy vazifasi bajariladi, darsda tahlil qilinadi.",
+  title: { default: '9-sinf Informatika videodarslari', template: '%s · 9-sinf Informatika' },
+  description: "9-sinf informatika videodarslari: uyda videoni ko'ring, shaxsiy uy vazifasini bajaring va darsda birga tahlil qiling.",
 };
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: '#ffffff',
-};
+/**
+ * Slayd dizaynining yozuv mashinkasi shrifti (rules/11). next/font uni
+ * build paytida yuklab, o'z domenimizdan beradi — Google'ga so'rov
+ * ketmaydi va sahifa ochilishida shrift sakramaydi.
+ */
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--shrift-mono-yuklangan',
+  display: 'swap',
+});
+
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#263b82' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uz">
+    <html lang="uz" className={mono.variable}>
       <body>
-        <header className={uslub.tepa}>
-          <div className="ds-qobiq">
-            <Link href="/" className={uslub.logo} prefetch={false}>
-              Informatika <span>9-sinf</span>
-            </Link>
-          </div>
-        </header>
-
-        <main>{children}</main>
-
-        <footer className={uslub.past}>
-          <div className="ds-qobiq">
-            <p>
-              Videodarsni uyda ko&apos;ring, uy vazifasini bajaring — darsda birga
-              tahlil qilamiz.
-            </p>
-          </div>
-        </footer>
+        <Navbar />
+        <main className={uslub.asosiy}>{children}</main>
       </body>
     </html>
   );

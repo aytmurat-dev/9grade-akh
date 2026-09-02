@@ -1,34 +1,8 @@
-.tepa {
-  border-bottom: 1px solid var(--rang-chiziq);
-  background: var(--rang-fon);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
+/* Sahifa tanasi. Footer redesign paytida olib tashlangan — uning
+   uslublari ham shu bilan birga o'chirildi (har sahifaga behuda
+   yuklanardi). min-height endi faqat tepa panelni hisobga oladi. */
 
-.logo {
-  display: inline-block;
-  padding: var(--joy-3) 0;
-  font-weight: var(--qalin-qalin);
-  font-size: var(--olcham-lg);
-  color: var(--rang-matn);
-  text-decoration: none;
-  letter-spacing: var(--harf-zich);
-}
-
-.logo span {
-  color: var(--rang-asosiy);
-}
-
-.past {
-  margin-top: var(--joy-16);
-  padding: var(--joy-8) 0 var(--joy-10);
-  border-top: 1px solid var(--rang-chiziq);
-  background: var(--rang-fon-2);
-  color: var(--rang-matn-2);
-  font-size: var(--olcham-sm);
-}
-
-.past p {
-  margin: 0;
+.asosiy {
+  min-height: calc(100vh - 76px);
+  padding-bottom: var(--joy-16);
 }

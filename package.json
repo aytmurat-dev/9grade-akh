@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/uy-vazifa-json.mjs",
+    "predev": "node scripts/uy-vazifa-json.mjs && node scripts/kontent-tekshir.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/uy-vazifa-json.mjs",
+    "prebuild": "node scripts/uy-vazifa-json.mjs && node scripts/kontent-tekshir.mjs",
     "build": "next build",
     "start": "npx serve out",
     "lint": "tsc --noEmit",

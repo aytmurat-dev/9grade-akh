@@ -1,103 +1,144 @@
-/* --- Raqam so'rash --- */
+/* --- Uy vazifasi kartasi ---
 
-.soroq {
-  border: 2px dashed var(--rang-asosiy);
-  background: var(--rang-asosiy-och);
-  border-radius: var(--burchak-lg);
-  padding: var(--joy-6) var(--joy-5);
-}
+   Raqam bitta joydan tanlanadi: kartaning tepasidagi ro'yxatdan.
+   Ilgari 12 ta tugma va alohida "Raqamni o'zgartirish" tugmasi bor
+   edi — ikkalasi shu <select> ga birlashdi.
 
-.soroqSarlavha {
-  margin: 0 0 var(--joy-1);
-  font-size: var(--olcham-lg);
-  color: var(--rang-asosiy-toq);
-}
+   Karta ichida bir yoki ikki topshiriq bo'ladi (rules/07): darsda
+   nechta segment bo'lsa, shunga qarab. Ikkitasi bo'lsa raqamlanadi.
+   --- */
 
-.panjara {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--joy-3);
-  margin-top: var(--joy-4);
-}
+/* --- Holat matnlari: taklif va kutish --- */
 
-.raqamTugma {
-  padding: 0;
-  font-weight: var(--qalin-qalin);
-  font-variant-numeric: tabular-nums;
-}
-
-/* --- Kutish --- */
-
-.kutish {
-  padding: var(--joy-6) var(--joy-5);
-  border: 1px solid var(--rang-chiziq);
-  border-radius: var(--burchak-lg);
+.kutish,
+.taklif {
+  margin: 0;
   color: var(--rang-matn-2);
-  background: var(--rang-fon-2);
+  font-size: var(--olcham-md);
+  line-height: var(--qator-orta);
 }
 
-/* --- Vazifa --- */
+/* --- Karta --- */
 
 .vazifa {
-  border: 1px solid var(--rang-chiziq);
-  border-left: 5px solid var(--rang-yashil);
-  border-radius: var(--burchak-lg);
-  padding: var(--joy-5);
-  background: var(--rang-fon);
+  border: 1px solid var(--rang-pastel-yashil-chiziq);
+  border-top: 5px solid var(--rang-pastel-yashil-matn);
+  border-radius: var(--burchak-xl);
+  padding: var(--joy-8) var(--joy-6);
+  background: #ffffff;
+  box-shadow: var(--soya-2);
 }
 
 .tepa {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   gap: var(--joy-3);
-  margin-bottom: var(--joy-4);
-  padding-bottom: var(--joy-3);
+  margin-bottom: var(--joy-6);
+  padding-bottom: var(--joy-4);
   border-bottom: 1px solid var(--rang-chiziq);
 }
 
-.nishon {
-  font-size: var(--olcham-md);
+.yorliq {
   color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-juda);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
 }
 
-.nishon strong {
-  color: var(--rang-matn);
-  font-size: var(--olcham-lg);
+/* Umumiy hajm — o'quvchi kechqurun qancha vaqt kerakligini oldindan
+   bilsin. O'ngga suriladi, select bilan yopishib qolmasin. */
+.hajm {
+  margin-left: auto;
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  font-weight: var(--qalin-qalin);
 }
 
 .vaqtinchalik {
+  padding: 2px 10px;
+  border: 1px solid var(--rang-diqqat-chiziq);
+  border-radius: var(--burchak-toliq);
+  background: var(--rang-diqqat-och);
   color: var(--rang-diqqat);
-  font-style: normal;
-  font-size: var(--olcham-sm);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-juda);
 }
 
-.topshiriq {
-  margin: 0 0 var(--joy-5);
-  font-size: var(--olcham-xl);
+/* --- Bitta topshiriq --- */
+
+.topshiriq + .topshiriq {
+  margin-top: var(--joy-8);
+  padding-top: var(--joy-8);
+  border-top: 1px dashed var(--rang-chiziq);
+}
+
+.topshiriqTepa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--joy-2) var(--joy-3);
+  margin-bottom: var(--joy-3);
+}
+
+.raqam {
+  padding: 2px 10px;
+  border-radius: var(--burchak-toliq);
+  background: var(--rang-pastel-yashil-fon);
+  color: var(--rang-pastel-yashil-matn);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-ulkan);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+}
+
+/* Qaysi segmentni mashq qiladi — topshiriq darsning qaysi qismidan
+   kelganini ko'rsatadi (rules/07). */
+.qamrov {
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
   line-height: var(--qator-orta);
 }
 
+.daqiqa {
+  margin-left: auto;
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-qalin);
+  white-space: nowrap;
+}
+
+.matn {
+  margin: 0 0 var(--joy-5);
+  font-size: var(--olcham-xl);
+  font-weight: var(--qalin-qalin);
+  line-height: var(--qator-orta);
+  color: var(--rang-matn);
+}
+
 .qiymat {
-  font-weight: var(--qalin-juda);
-  color: var(--rang-asosiy-toq);
+  font-weight: var(--qalin-ulkan);
+  color: var(--rang-asosiy);
   background: var(--rang-asosiy-och);
+  border: 1px solid var(--rang-asosiy-chiziq);
   border-radius: var(--burchak-sm);
-  padding: 1px 6px;
+  padding: 2px 8px;
+  display: inline-block;
 }
 
 .talab {
-  margin-top: var(--joy-3);
-  padding: var(--joy-4);
+  margin-top: var(--joy-4);
+  padding: var(--joy-5);
   background: var(--rang-fon-2);
+  border: 1px solid var(--rang-chiziq);
   border-radius: var(--burchak-md);
 }
 
 .talab h4 {
-  margin: 0 0 var(--joy-1);
+  margin: 0 0 var(--joy-2);
   font-size: var(--olcham-xs);
-  font-weight: var(--qalin-qalin);
+  font-weight: var(--qalin-ulkan);
   letter-spacing: var(--harf-keng);
   text-transform: uppercase;
   color: var(--rang-matn-2);
@@ -107,14 +148,23 @@
   margin: 0;
   font-size: var(--olcham-md);
   line-height: var(--qator-orta);
+  color: var(--rang-matn);
 }
 
 .qoshimcha {
-  background: var(--rang-sariq-och);
+  background: var(--rang-pastel-sariq-fon);
+  border-color: var(--rang-pastel-sariq-chiziq);
 }
 
-@media (min-width: 520px) {
-  .panjara {
-    grid-template-columns: repeat(6, 1fr);
+.qoshimcha h4 {
+  color: var(--rang-pastel-sariq-matn);
+}
+
+@media (max-width: 560px) {
+  /* Tor ekranda "≈10 daqiqa" o'ngga qochib, sarlavhani ikkiga bo'lib
+     yuboradi — o'z qatoriga tushsin. */
+  .daqiqa,
+  .hajm {
+    margin-left: 0;
   }
 }

@@ -1,18 +1,31 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
-import { Alert, Tugma } from '@/components/ds';
+import { useCallback, useEffect, useId, useState } from 'react';
+import { Alert, Tanlov, Tugma } from '@/components/ds';
 import { RAQAM_KALITI, VARIANTLAR_SONI } from '@/lib/sozlamalar';
 import { shablonBolaklari, type Variant } from '@/lib/shablon';
 import uslub from './UyVazifa.module.css';
+
+/**
+ * Bitta topshiriq. Sarlavhasi (qaysi segmentni mashq qiladi) server
+ * tomonida hisoblanadi — bu yerda faqat chiziladi.
+ */
+export type TopshiriqKorinishi = {
+  shablon: string;
+  minimum: string;
+  qoshimcha?: string;
+  daqiqa: number;
+  /** "1–2-segmentlar" */
+  qamrovYorliq: string;
+  /** "JavaScript nima qila oladi · Konsolda birinchi buyruq" */
+  qamrovNomi: string;
+};
 
 type Props = {
   yonalish: string;
   /** "01" ko'rinishidagi dars raqami */
   raqam: string;
-  shablon: string;
-  minimum: string;
-  qoshimcha?: string;
+  topshiriqlar: TopshiriqKorinishi[];
 };
 
 type Holat =
@@ -21,6 +34,8 @@ type Holat =
   | { turi: 'yuklanmoqda'; n: number }
   | { turi: 'tayyor'; n: number; variant: Variant; vaqtinchalik: boolean }
   | { turi: 'xato'; n: number };
+
+const RAQAMLAR = Array.from({ length: VARIANTLAR_SONI }, (_, i) => i + 1);
 
 /** Shablon matnini variant qiymatlari bilan chizadi (qiymatlar qalin). */
 function Matn({ manba, variant }: { manba: string; variant: Variant }) {
@@ -50,16 +65,28 @@ function raqamniTekshir(qiymat: string | null): number | null {
  * Uy vazifasi. MUHIM: qolgan 11 variant sahifa kodida yo'q.
  * Variantlar build paytida alohida JSON fayllarga yoziladi
  * (scripts/uy-vazifa-json.mjs) va bu yerda faqat bittasi yuklanadi.
+ *
+ * Topshiriqlar bir nechta bo'lishi mumkin (rules/07): darsda nechta
+ * segment bo'lsa, shunga qarab 1 yoki 2 ta. Hammasi **bitta** variant
+ * qatoridan foydalanadi — o'quvchi raqamini bir marta tanlaydi.
+ *
+ * Raqam bitta joydan — yuqoridagi ro'yxatdan — tanlanadi. Ilgari ikki
+ * xil ko'rinish bor edi: 12 tugmali panjara va "Raqamni o'zgartirish"
+ * tugmasi. Endi ikkalasi bitta <select> ga birlashtirildi.
  */
-export default function UyVazifa({ yonalish, raqam, shablon, minimum, qoshimcha }: Props) {
+export default function UyVazifa({ yonalish, raqam, topshiriqlar }: Props) {
   const [holat, setHolat] = useState<Holat>({ turi: 'boshlanmoqda' });
+  const maydonId = useId();
 
   const variantniYukla = useCallback(
     async (n: number, vaqtinchalik: boolean) => {
       setHolat({ turi: 'yuklanmoqda', n });
       try {
+        // 'no-cache' — keshdagi nusxa ishlatiladi, lekin har safar
+        // tekshiriladi. 'force-cache' bo'lganda topshiriq matni tuzatilsa,
+        // sahifani ilgari ochgan o'quvchida eski variant qolib ketardi.
         const javob = await fetch(`/uy/${yonalish}/${raqam}/${n}.json`, {
-          cache: 'force-cache',
+          cache: 'no-cache',
         });
         if (!javob.ok) throw new Error(String(javob.status));
         const variant = (await javob.json()) as Variant;
@@ -94,7 +121,9 @@ export default function UyVazifa({ yonalish, raqam, shablon, minimum, qoshimcha 
     else setHolat({ turi: 'soraladi' });
   }, [variantniYukla]);
 
-  function raqamniTanla(n: number) {
+  function raqamniTanla(qiymat: string) {
+    const n = raqamniTekshir(qiymat);
+    if (!n) return;
     try {
       window.localStorage.setItem(RAQAM_KALITI, String(n));
     } catch {
@@ -103,88 +132,97 @@ export default function UyVazifa({ yonalish, raqam, shablon, minimum, qoshimcha 
     void variantniYukla(n, false);
   }
 
-  /* ---------------- Raqam so'rash ---------------- */
-
-  if (holat.turi === 'soraladi') {
-    return (
-      <div className={uslub.soroq}>
-        <h3 className={uslub.soroqSarlavha}>Raqamingizni kiriting (1–12)</h3>
-        <p className="ds-yordam">
-          Jurnaldagi tartib raqamingizni bosing. Har bir raqamga alohida variant
-          beriladi. Bir marta tanlaysiz — brauzer eslab qoladi.
-        </p>
-        <div className={uslub.panjara}>
-          {Array.from({ length: VARIANTLAR_SONI }, (_, i) => i + 1).map((n) => (
-            <Tugma
-              key={n}
-              korinish="katta"
-              className={uslub.raqamTugma}
-              onClick={() => raqamniTanla(n)}
-            >
-              {n}
-            </Tugma>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  /* ---------------- Kutish / xato ---------------- */
-
-  if (holat.turi === 'boshlanmoqda' || holat.turi === 'yuklanmoqda') {
-    return (
-      <div className={uslub.kutish} aria-live="polite">
-        Variantingiz yuklanmoqda…
-      </div>
-    );
-  }
-
-  if (holat.turi === 'xato') {
-    return (
-      <Alert turi="xato" sarlavha={`${holat.n}-variant yuklanmadi`}>
-        <p>Internet aloqasini tekshirib, sahifani yangilang.</p>
-        <Tugma korinish="sokin" onClick={() => setHolat({ turi: 'soraladi' })}>
-          Boshqa raqam tanlash
-        </Tugma>
-      </Alert>
-    );
-  }
-
-  /* ---------------- Tayyor ---------------- */
-
-  const { n, variant, vaqtinchalik } = holat;
+  /* Tanlangan raqam — select shuni ko'rsatadi */
+  const tanlangan = holat.turi === 'boshlanmoqda' || holat.turi === 'soraladi' ? null : holat.n;
+  const jamiDaqiqa = topshiriqlar.reduce((s, t) => s + t.daqiqa, 0);
+  const kopmi = topshiriqlar.length > 1;
 
   return (
     <div className={uslub.vazifa}>
       <div className={uslub.tepa}>
-        <span className={uslub.nishon}>
-          Sizning variantingiz: <strong>№{n}</strong>
-          {vaqtinchalik && <em className={uslub.vaqtinchalik}> (URL orqali)</em>}
+        <label className={uslub.yorliq} htmlFor={maydonId}>
+          Jurnaldagi raqamingiz
+        </label>
+
+        <Tanlov
+          id={maydonId}
+          qiymat={tanlangan ? String(tanlangan) : ''}
+          ozgarganda={raqamniTanla}
+          korinish={tanlangan ? 'oddiy' : 'diqqat'}
+        >
+          <option value="" disabled>
+            tanlang…
+          </option>
+          {RAQAMLAR.map((n) => (
+            <option key={n} value={n}>
+              №{n}
+            </option>
+          ))}
+        </Tanlov>
+
+        <span className={uslub.hajm}>
+          {topshiriqlar.length} topshiriq · ≈{jamiDaqiqa} daqiqa
         </span>
-        <Tugma korinish="sokin" onClick={() => setHolat({ turi: 'soraladi' })}>
-          Raqamni o&apos;zgartirish
-        </Tugma>
+
+        {holat.turi === 'tayyor' && holat.vaqtinchalik && (
+          <span className={uslub.vaqtinchalik}>URL orqali</span>
+        )}
       </div>
 
-      <p className={uslub.topshiriq}>
-        <Matn manba={shablon} variant={variant} />
-      </p>
-
-      <div className={uslub.talab}>
-        <h4>Kamida shu bo&apos;lsin</h4>
-        <p>
-          <Matn manba={minimum} variant={variant} />
+      {(holat.turi === 'boshlanmoqda' || holat.turi === 'soraladi') && (
+        <p className={uslub.taklif}>
+          Ro&apos;yxatdagi tartib raqamingizni tanlang — shaxsiy topshiriq shu
+          yerda chiqadi. Bir marta tanlaysiz, brauzer eslab qoladi.
         </p>
-      </div>
-
-      {qoshimcha && (
-        <div className={`${uslub.talab} ${uslub.qoshimcha}`}>
-          <h4>Qo&apos;shimcha (ixtiyoriy)</h4>
-          <p>
-            <Matn manba={qoshimcha} variant={variant} />
-          </p>
-        </div>
       )}
+
+      {holat.turi === 'yuklanmoqda' && (
+        <p className={uslub.kutish} aria-live="polite">
+          Variantingiz yuklanmoqda…
+        </p>
+      )}
+
+      {holat.turi === 'xato' && (
+        <Alert turi="xato" sarlavha={`${holat.n}-variant yuklanmadi`}>
+          <p>Internet aloqasini tekshiring.</p>
+          <Tugma korinish="sokin" onClick={() => void variantniYukla(holat.n, false)}>
+            Qayta urinish
+          </Tugma>
+        </Alert>
+      )}
+
+      {holat.turi === 'tayyor' &&
+        topshiriqlar.map((topshiriq, i) => (
+          <article className={uslub.topshiriq} key={i}>
+            <header className={uslub.topshiriqTepa}>
+              {kopmi && <span className={uslub.raqam}>{i + 1}-topshiriq</span>}
+              <span className={uslub.qamrov}>
+                {topshiriq.qamrovYorliq}: {topshiriq.qamrovNomi}
+              </span>
+              <span className={uslub.daqiqa}>≈{topshiriq.daqiqa} daqiqa</span>
+            </header>
+
+            <p className={uslub.matn}>
+              <Matn manba={topshiriq.shablon} variant={holat.variant} />
+            </p>
+
+            <div className={uslub.talab}>
+              <h4>Kamida shu bo&apos;lsin</h4>
+              <p>
+                <Matn manba={topshiriq.minimum} variant={holat.variant} />
+              </p>
+            </div>
+
+            {topshiriq.qoshimcha && (
+              <div className={`${uslub.talab} ${uslub.qoshimcha}`}>
+                <h4>Qo&apos;shimcha (ixtiyoriy)</h4>
+                <p>
+                  <Matn manba={topshiriq.qoshimcha} variant={holat.variant} />
+                </p>
+              </div>
+            )}
+          </article>
+        ))}
     </div>
   );
 }

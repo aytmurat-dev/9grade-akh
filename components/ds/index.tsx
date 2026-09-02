@@ -1,5 +1,5 @@
 /**
- * DIZAYN SISTEMA — React qavati
+ * DIZAYN SISTEMA — React qavati (Educom Style)
  *
  * Bu komponentlar styles/ds.css dagi sinflarni o'raydi, xolos. Ular
  * ataylab "yupqa": yangi rang yoki oraliq bu yerda emas, tokenlarda
@@ -7,10 +7,7 @@
  *
  * Barcha sahifalar shu komponentlardan yig'iladi. Agar kerakli bo'lak
  * bu yerda bo'lmasa — avval shu faylga qo'shing, keyin sahifada
- * ishlating. Sahifa ichida bir martalik uslub yozmang.
- *
- * Hech qaysisida 'use client' yo'q — server komponentida ham, mijoz
- * komponentida ham ishlaydi.
+ * ishlating.
  */
 
 import Link from 'next/link';
@@ -52,7 +49,7 @@ export function Bolim({
   className,
   children,
 }: {
-  /** Kichik, katta harfli bo'lim sarlavhasi */
+  /** Kichik, yorqin bo'lim sarlavhasi */
   sarlavha?: string;
   /** ?slayd rejimida yashirilsinmi */
   yashirilsin?: boolean;
@@ -71,13 +68,25 @@ export function Bolim({
 }
 
 /* ------------------------------------------------------------------
-   Karta
+   Karta (Educom Card & Pastel Options)
    ------------------------------------------------------------------ */
+
+type KartaRangi = 'oddiy' | 'moviy' | 'sariq' | 'binafsha' | 'yashil' | 'pushti';
+
+const KARTA_RANGI_SINFI: Record<KartaRangi, string> = {
+  oddiy: '',
+  moviy: 'ds-karta--moviy',
+  sariq: 'ds-karta--sariq',
+  binafsha: 'ds-karta--binafsha',
+  yashil: 'ds-karta--yashil',
+  pushti: 'ds-karta--pushti',
+};
 
 export function Karta({
   href,
   sarlavha,
   matn,
+  rang = 'oddiy',
   className,
   children,
 }: {
@@ -85,6 +94,7 @@ export function Karta({
   href?: string;
   sarlavha?: string;
   matn?: string;
+  rang?: KartaRangi;
   className?: string;
   children?: ReactNode;
 }) {
@@ -96,14 +106,21 @@ export function Karta({
     </>
   );
 
+  const sinf = sinflar(
+    'ds-karta',
+    href && 'ds-karta--havola',
+    KARTA_RANGI_SINFI[rang],
+    className,
+  );
+
   if (href) {
     return (
-      <Link href={href} className={sinflar('ds-karta', 'ds-karta--havola', className)}>
+      <Link href={href} className={sinf}>
         {ichi}
       </Link>
     );
   }
-  return <div className={sinflar('ds-karta', className)}>{ichi}</div>;
+  return <div className={sinf}>{ichi}</div>;
 }
 
 /** Yumshoq fonli quti — izoh yoki ikkinchi darajali ma'lumot uchun */
@@ -121,11 +138,12 @@ export function Panel({
    Tugma — <button> yoki havola
    ------------------------------------------------------------------ */
 
-type TugmaKorinishi = 'oddiy' | 'asosiy' | 'sokin' | 'katta';
+type TugmaKorinishi = 'oddiy' | 'asosiy' | 'iliq' | 'sokin' | 'katta';
 
 const TUGMA_SINFI: Record<TugmaKorinishi, string> = {
   oddiy: '',
   asosiy: 'ds-tugma--asosiy',
+  iliq: 'ds-tugma--iliq',
   sokin: 'ds-tugma--sokin',
   katta: 'ds-tugma--katta',
 };
@@ -165,10 +183,61 @@ export function Tugma({
 }
 
 /* ------------------------------------------------------------------
+   Tanlov — ro'yxatdan bitta qiymat (native <select>)
+   ------------------------------------------------------------------ */
+
+export function Tanlov({
+  qiymat,
+  ozgarganda,
+  korinish = 'oddiy',
+  id,
+  className,
+  children,
+  ...qolgani
+}: {
+  qiymat?: string;
+  /**
+   * Berilmasa — select boshqarilmaydi (defaultValue). Shu tufayli uni
+   * server komponentida ham ko'rsatish mumkin (app/dizayn).
+   */
+  ozgarganda?: (qiymat: string) => void;
+  /** "diqqat" — hali tanlanmagan, ko'zga tashlansin */
+  korinish?: 'oddiy' | 'diqqat';
+  id?: string;
+  className?: string;
+  children: ReactNode;
+} & Record<`aria-${string}`, string | undefined>) {
+  const sinf = sinflar(
+    'ds-tanlov',
+    korinish === 'diqqat' && 'ds-tanlov--diqqat',
+    className,
+  );
+
+  return (
+    <span className={sinf}>
+      {ozgarganda ? (
+        <select
+          id={id}
+          value={qiymat}
+          onChange={(hodisa) => ozgarganda(hodisa.target.value)}
+          {...qolgani}
+        >
+          {children}
+        </select>
+      ) : (
+        <select id={id} defaultValue={qiymat} {...qolgani}>
+          {children}
+        </select>
+      )}
+    </span>
+  );
+}
+
+/* ------------------------------------------------------------------
    Belgi (badge)
    ------------------------------------------------------------------ */
 
-type BelgiRangi = 'sokin' | 'asosiy' | 'diqqat' | 'yashil' | 'vaqt';
+type BelgiRangi = 'sokin' | 'asosiy' | 'iliq' | 'diqqat' | 'yashil' | 'vaqt';
 
 export function Belgi({
   rang = 'sokin',
@@ -188,7 +257,7 @@ export function Belgi({
 
 /** Belgilar qatori */
 export function Belgilar({ children }: { children: ReactNode }) {
-  return <p className="ds-belgilar">{children}</p>;
+  return <div className="ds-belgilar">{children}</div>;
 }
 
 /* ------------------------------------------------------------------
@@ -252,6 +321,9 @@ export function Qator({
       <span className="ds-qator-raqam">{raqam}</span>
       <span className="ds-qator-nomi">{nomi}</span>
       {izoh !== undefined && <span className="ds-qator-izoh">{izoh}</span>}
+      <span className="ds-qator-oq" aria-hidden="true">
+        →
+      </span>
     </Link>
   );
 }

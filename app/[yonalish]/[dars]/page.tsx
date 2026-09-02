@@ -6,10 +6,15 @@ import SlaydRejim from '@/components/SlaydRejim';
 import Slider from '@/components/Slider';
 import UyVazifa from '@/components/UyVazifa';
 import VideoFrame from '@/components/VideoFrame';
-import { Belgi, Belgilar, Bolim, Qobiq, Ustki } from '@/components/ds';
-import { darsFayllari, darsniOl, qoshnilar, yonalishmi } from '@/lib/darslar';
+import { Bolim, Qobiq } from '@/components/ds';
+import { darsFayllari, darsniOl, qoshnilar, rasmBormi, yonalishmi } from '@/lib/darslar';
 import { kodniBoyash, markdownToHtml } from '@/lib/markdown';
-import { CHORAK_RAQAMI, YONALISHLAR, YONALISH_NOMI } from '@/lib/sozlamalar';
+import {
+  CHORAK_RAQAMI,
+  YONALISHLAR,
+  YONALISH_NOMI,
+  yonalishManzili,
+} from '@/lib/sozlamalar';
 import uslub from './dars.module.css';
 
 type Props = { params: Promise<{ yonalish: string; dars: string }> };
@@ -31,13 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/**
- * Dars sahifasi — to'liq server komponenti.
- *
- * Brauzerga faqat uchta kichik orolcha tushadi: slayder, uy vazifasi
- * va ?slayd rejimi. Sarlavha, video, segmentlar, qo'llanma va
- * navigatsiya — sof HTML, ular uchun JavaScript umuman kerak emas.
- */
 export default async function DarsSahifasi({ params }: Props) {
   const { yonalish, dars: raqam } = await params;
   if (!yonalishmi(yonalish)) notFound();
@@ -50,105 +48,121 @@ export default async function DarsSahifasi({ params }: Props) {
   // Slayd kodini build paytida bo'yaymiz — brauzerga kutubxona tushmasin.
   const slaydlar = await Promise.all(
     dars.slaydlar.map(async (slayd) => ({
+      muqova: slayd.muqova,
+      yorliq: slayd.yorliq,
+      ustyozuv: slayd.ustyozuv,
       sarlavha: slayd.sarlavha,
       matn: slayd.matn,
-      rasm: slayd.rasm,
+      royxat: slayd.royxat,
+      rasm: slayd.rasm && rasmBormi(slayd.rasm) ? slayd.rasm : undefined,
+      rasmKutilmoqda: slayd.rasm !== undefined && !rasmBormi(slayd.rasm),
+      teglar: slayd.teglar,
+      muhr: slayd.muhr,
       pauza: slayd.pauza,
       topshiriq: slayd.topshiriq,
+      vaqt: slayd.vaqt,
+      til: slayd.til,
       kodHtml: slayd.kod ? await kodniBoyash(slayd.kod, slayd.til) : undefined,
     })),
   );
 
-  // MUHIM: variantlar mijozga umuman berilmaydi. Aks holda 12 tasi ham
-  // sahifa kodida qolib, o'quvchi hammasini ko'rgan bo'lardi.
-  const { variantlar: _variantlar, ...uyVazifa } = dars.uyVazifa;
+  // MUHIM: variantlar mijozga umuman berilmaydi — faqat topshiriq
+  // matnlari uzatiladi, qiymatlarni brauzer alohida JSON'dan oladi.
+  const topshiriqlar = dars.uyVazifa.topshiriqlar.map((t) => ({
+    shablon: t.shablon,
+    minimum: t.minimum,
+    qoshimcha: t.qoshimcha,
+    daqiqa: t.daqiqa,
+    // Topshiriq darsning qaysi qismidan kelganini o'quvchi ko'rsin (rules/07)
+    qamrovYorliq:
+      t.qamrov.length > 1 ? `${t.qamrov.join('–')}-segmentlar` : `${t.qamrov[0]}-segment`,
+    qamrovNomi: t.qamrov
+      .map((r) => dars.segmentlar[r - 1]?.nomi ?? `${r}-segment`)
+      .join(' · '),
+  }));
 
   const { oldingi, keyingi } = qoshnilar(yonalish, dars);
 
   return (
     <Qobiq>
-      <nav className={uslub.orqaga} data-yashir>
-        <Link href={`/${yonalish}`} prefetch={false}>
-          ← {YONALISH_NOMI[yonalish]}
+      {/* Breadcrumb */}
+      <nav className={uslub.orqaga} data-yashir aria-label="Yo'l">
+        <Link href={yonalishManzili(yonalish)} className={uslub.orqagaHavola} prefetch={false}>
+          <span>←</span> {YONALISH_NOMI[yonalish]}
         </Link>
       </nav>
 
       {/* 1. Sarlavha + davomiylik + chorak */}
       <header className={uslub.bosh} data-yashir>
-        <Ustki>
-          {dars.dars}-dars · {CHORAK_RAQAMI[dars.chorak] ?? dars.chorak} chorak
-        </Ustki>
-        <h1>{dars.mavzu}</h1>
-        <Belgilar>
-          <Belgi>▶ {dars.davomiylik} daqiqa</Belgi>
-          <Belgi>{slaydlar.length} ta slayd</Belgi>
-        </Belgilar>
+        <div className={uslub.ustkiQator}>
+          <span className={uslub.darsRaqamPill}>
+            {dars.dars}-DARS
+          </span>
+          <span className={uslub.chorakPill}>
+            {CHORAK_RAQAMI[dars.chorak] ?? dars.chorak} CHORAK
+          </span>
+        </div>
+
+        <h1 className={uslub.mavzuSarlavha}>{dars.mavzu}</h1>
       </header>
 
-      {/* 2. Video */}
+      {/* 2. Video — vaqt belgilari ro'yxati ataylab yo'q: pauza vaqtlari
+          videoning o'zida va slaydlarda ko'rinadi, sahifada takrorlanmaydi. */}
       <Bolim yashirilsin>
         <VideoFrame video={dars.video} mavzu={dars.mavzu} />
-
-        {dars.segmentlar.length > 0 && (
-          <ol className={uslub.segmentlar}>
-            {dars.segmentlar.map((segment, i) => (
-              <li key={i}>
-                <Belgi rang="vaqt">{segment.pauza}</Belgi>
-                <span className={uslub.segmentNomi}>{segment.nomi}</span>
-                <span className={uslub.tur}>{segment.tur}</span>
-              </li>
-            ))}
-          </ol>
-        )}
       </Bolim>
 
-      {/* 3. Slaydlar — ?slayd rejimida yolg'iz shu qoladi */}
-      <Bolim sarlavha="Slaydlar">
-        <Slider slaydlar={slaydlar} mavzu={dars.mavzu} />
+      {/* 3. Slaydlar */}
+      <Bolim sarlavha="Taqdimot slaydlari">
+        <Slider
+          slaydlar={slaydlar}
+          mavzu={dars.mavzu}
+          darsKodi={`${yonalish.toUpperCase()}-${dars.raqam}`}
+        />
       </Bolim>
 
       {/* 4. Qo'llanma */}
-      <Bolim sarlavha="Qo'llanma" yashirilsin>
+      <Bolim sarlavha="Dars qo'llanmasi" yashirilsin>
         <Qollanma html={qollanmaHtml} />
       </Bolim>
 
       {/* 5. Uy vazifasi */}
-      <Bolim sarlavha="Uy vazifasi" yashirilsin>
-        <UyVazifa
-          yonalish={yonalish}
-          raqam={dars.raqam}
-          shablon={uyVazifa.shablon}
-          minimum={uyVazifa.minimum}
-          qoshimcha={uyVazifa.qoshimcha}
-        />
+      <Bolim sarlavha="Shaxsiy uy vazifasi" yashirilsin>
+        <UyVazifa yonalish={yonalish} raqam={dars.raqam} topshiriqlar={topshiriqlar} />
       </Bolim>
 
-      <nav className={uslub.qoshni} data-yashir>
-        {oldingi ? (
-          <Link
-            href={`/${yonalish}/${oldingi.raqam}`}
-            className={uslub.qoshniHavola}
-            prefetch={false}
-          >
-            <span>← Oldingi dars</span>
-            <strong>{oldingi.mavzu}</strong>
-          </Link>
-        ) : (
-          <span />
-        )}
-        {keyingi && (
-          <Link
-            href={`/${yonalish}/${keyingi.raqam}`}
-            className={`${uslub.qoshniHavola} ${uslub.ong}`}
-            prefetch={false}
-          >
-            <span>Keyingi dars →</span>
-            <strong>{keyingi.mavzu}</strong>
-          </Link>
-        )}
-      </nav>
+      {/* Navigatsiya: Oldingi / keyingi dars */}
+      {/* Qo'shni dars bo'lmasa navigatsiya umuman chizilmaydi — aks holda
+          sahifa oxirida bo'sh chiziq va ortiqcha joy qolib ketadi. */}
+      {(oldingi || keyingi) && (
+        <nav className={uslub.qoshni} data-yashir aria-label="Darslararo o'tish">
+          {oldingi && (
+            <Link
+              href={`/${yonalish}/${oldingi.raqam}`}
+              className={uslub.qoshniHavola}
+              prefetch={false}
+            >
+              <span>← Oldingi dars</span>
+              <strong>{oldingi.mavzu}</strong>
+            </Link>
+          )}
+          {/* Oldingisi yo'q bo'lsa, keyingisi o'ng ustunda qolsin */}
+          {!oldingi && keyingi && <div />}
+          {keyingi && (
+            <Link
+              href={`/${yonalish}/${keyingi.raqam}`}
+              className={`${uslub.qoshniHavola} ${uslub.ong}`}
+              prefetch={false}
+            >
+              <span>Keyingi dars →</span>
+              <strong>{keyingi.mavzu}</strong>
+            </Link>
+          )}
+        </nav>
+      )}
 
       <SlaydRejim />
     </Qobiq>
   );
 }
+

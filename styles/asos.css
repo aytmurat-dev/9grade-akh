@@ -1,5 +1,5 @@
 /* ==================================================================
-   DIZAYN SISTEMA — 2-qavat: asos
+   DIZAYN SISTEMA — 2-qavat: asos (Educom Modern Foundation)
    ------------------------------------------------------------------
    Oddiy HTML elementlarining standart ko'rinishi. Bu yerda faqat
    tokenlar ishlatiladi. Sinf yozmasdan <h2> yoki <p> qo'ysangiz ham
@@ -15,6 +15,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  background-color: var(--rang-fon-2);
 }
 
 body {
@@ -22,9 +23,18 @@ body {
   background: var(--rang-fon);
   color: var(--rang-matn);
   font-family: var(--shrift);
-  font-size: 18px;
-  line-height: var(--qator-keng);
+  font-size: 16px;
+  line-height: var(--qator-orta);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(rgba(38, 59, 130, 0.055) 0.7px, transparent 0.7px);
+  background-size: 11px 11px;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 17px;
+  }
 }
 
 h1,
@@ -36,11 +46,18 @@ h6 {
   margin: 0 0 var(--joy-3);
   line-height: var(--qator-zich);
   letter-spacing: var(--harf-zich);
-  font-weight: var(--qalin-qalin);
+  font-weight: var(--qalin-juda);
+  color: var(--rang-matn);
+}
+
+h1,
+h2 {
+  font-family: var(--shrift-display);
 }
 
 h1 {
   font-size: var(--olcham-3xl);
+  font-weight: var(--qalin-ulkan);
 }
 h2 {
   font-size: var(--olcham-2xl);
@@ -53,13 +70,15 @@ h4 {
 }
 
 p {
-  margin: 0 0 var(--joy-5);
+  margin: 0 0 var(--joy-4);
+  color: var(--rang-matn-2);
 }
 
 ul,
 ol {
   margin: 0 0 var(--joy-5);
   padding-left: 1.35em;
+  color: var(--rang-matn-2);
 }
 
 li {
@@ -68,8 +87,8 @@ li {
 
 a {
   color: var(--rang-asosiy);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-decoration: none;
+  transition: color var(--tez), opacity var(--tez);
 }
 
 a:hover {
@@ -77,7 +96,8 @@ a:hover {
 }
 
 strong {
-  font-weight: var(--qalin-qalin);
+  font-weight: var(--qalin-juda);
+  color: var(--rang-matn);
 }
 
 hr {
@@ -94,10 +114,12 @@ img {
 button {
   font: inherit;
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
 :focus-visible {
-  outline: 3px solid var(--rang-asosiy);
+  outline: 2px solid var(--rang-asosiy);
   outline-offset: 2px;
   border-radius: var(--burchak-sm);
 }
@@ -113,7 +135,7 @@ samp {
 
 pre {
   margin: 0 0 var(--joy-5);
-  padding: var(--joy-4);
+  padding: var(--joy-5);
   background: var(--rang-kod-fon);
   color: var(--rang-kod-matn);
   border-radius: var(--burchak-md);
@@ -122,6 +144,7 @@ pre {
   line-height: var(--qator-orta);
   font-size: var(--olcham-sm);
   tab-size: 2;
+  border: 1px solid var(--rang-kod-chiziq);
 }
 
 pre code {
@@ -135,53 +158,53 @@ pre code {
 
 .hljs-comment,
 .hljs-quote {
-  color: #8fa3ba;
+  color: #94a3b8;
   font-style: italic;
 }
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
 .hljs-doctag {
-  color: #ff9db8;
+  color: #f472b6;
 }
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-tag {
-  color: #7fd4ff;
+  color: #60a5fa;
 }
 .hljs-attr,
 .hljs-attribute,
 .hljs-variable,
 .hljs-template-variable {
-  color: #ffd479;
+  color: #fbbf24;
 }
 .hljs-string,
 .hljs-regexp,
 .hljs-addition {
-  color: #a8e6a3;
+  color: #4ade80;
 }
 .hljs-number,
 .hljs-symbol,
 .hljs-bullet {
-  color: #f5b8ff;
+  color: #c084fc;
 }
 .hljs-title,
 .hljs-section,
 .hljs-built_in {
-  color: #9ecbff;
+  color: #38bdf8;
 }
 .hljs-meta {
-  color: #c3cfdd;
+  color: #cbd5e1;
 }
 .hljs-deletion {
-  color: #ff9db8;
+  color: #f87171;
 }
 .hljs-emphasis {
   font-style: italic;
 }
 .hljs-strong {
-  font-weight: var(--qalin-qalin);
+  font-weight: var(--qalin-juda);
 }
 
 @media (prefers-reduced-motion: reduce) {

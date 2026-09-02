@@ -160,9 +160,11 @@ node scripts/gen-image.mjs "Ikkita LAN router orqali ulangan tarmoq sxemasi, oq 
 2. **Matn kam bo'lsin.** Rasmda matn yozilishi ishonchsiz —
    yorliqlarni SVG bilan ustiga qo'yish yaxshiroq
 3. **Oq yoki shaffof fon** — sayt foniga mos tushadi
-4. **Uslub bir xil bo'lsin** — barcha rasmlarda bir xil ta'rif
-   ishlating, masalan: `flat vector illustration, minimal, white
-   background, thin lines, muted blue and gray palette`
+4. **Uslub bir xil bo'lsin** — rasm slaydda "dossier" varag'i ustida
+   turadi (`rules/11`), shuning uchun palitra ham o'sha: qog'oz
+   `#f0ebe2`, siyoh `#1c1a17`, kulrang `#8b8578` va bitta qizil
+   aksent `#b32b26`. Tayyor ta'rif `scripts/rasm-yasa.mjs` dagi
+   `USLUB` da — qo'lda yozganda ham shundan nusxa oling
 5. **O'lcham:** 1200×675 (16:9) yoki 800×800
 
 ### Generatsiyadan keyin
