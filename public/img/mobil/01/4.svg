@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Android Studio uch qismdan iborat: muharrir, SDK va emulyator">
+  <title>Android Studio ichidagi uchta qism</title>
+
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .nom    { font: 500 26px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; letter-spacing: .04em; }
+    .izoh   { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+  </style>
+
+  <!-- tashqi ramka: bitta yuklab olinadigan to'plam -->
+  <rect x="20" y="52" width="1080" height="212" fill="none" stroke="#cdc5b4" stroke-width="2" stroke-dasharray="7 7"/>
+  <rect x="44" y="38" width="290" height="28" fill="#f0ebe2"/>
+  <text class="yorliq" x="52" y="60">ANDROID STUDIO · 1 YUKLAB OLISH</text>
+
+  <!-- 1. Muharrir -->
+  <rect class="quti" x="44" y="92" width="328" height="148"/>
+  <rect x="44" y="92" width="328" height="5" fill="#b32b26"/>
+  <text class="nom"  x="70" y="142">MUHARRIR</text>
+  <text class="izoh" x="70" y="180">kod yoziladigan</text>
+  <text class="izoh" x="70" y="208">oyna</text>
+
+  <!-- 2. SDK -->
+  <rect class="quti" x="396" y="92" width="328" height="148"/>
+  <rect x="396" y="92" width="328" height="5" fill="#b32b26"/>
+  <text class="nom"  x="422" y="142">SDK</text>
+  <text class="izoh" x="422" y="180">kutubxonalar va</text>
+  <text class="izoh" x="422" y="208">yig'ish asboblari</text>
+
+  <!-- 3. Emulyator -->
+  <rect class="quti" x="748" y="92" width="328" height="148"/>
+  <rect x="748" y="92" width="328" height="5" fill="#b32b26"/>
+  <text class="nom"  x="774" y="142">EMULYATOR</text>
+  <text class="izoh" x="774" y="180">kompyuter ichidagi</text>
+  <text class="izoh" x="774" y="208">virtual telefon</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">UCHTASI BIRGA KELADI · SHUNING UCHUN YUKLASH UZOQ</text>
+</svg>

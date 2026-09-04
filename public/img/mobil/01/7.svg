@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Run bosilganda Gradle yigadi, APK tayyor boladi, emulyatorga ornatiladi va ilova ochiladi">
+  <title>Run bosilgandan keyin nima bo'ladi</title>
+
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .qadam  { font: 500 22px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; letter-spacing: .04em; }
+    .izoh   { font: 400 19px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; }
+  </style>
+
+  <!-- Run tugmasi -->
+  <circle cx="72" cy="176" r="36" fill="#b32b26"/>
+  <path d="M62 160 l24 16 l-24 16 z" fill="#f0ebe2"/>
+  <text class="yorliq" x="72" y="248" text-anchor="middle" font-size="19">RUN</text>
+
+  <!-- chiziq -->
+  <path d="M124 176 H1070" stroke="#cdc5b4" stroke-width="2"/>
+  <path d="M1070 176 l-13 -8 v16 z" fill="#8b8578"/>
+
+  <!-- qadamlar -->
+  <g>
+    <rect x="243" y="164" width="24" height="24" fill="#e6e0d5" stroke="#8b8578" stroke-width="2"/>
+    <text class="qadam" x="255" y="138" text-anchor="middle">1 · YIG'ADI</text>
+    <text class="izoh"  x="255" y="228" text-anchor="middle">Gradle</text>
+  </g>
+
+  <g>
+    <rect x="483" y="164" width="24" height="24" fill="#e6e0d5" stroke="#8b8578" stroke-width="2"/>
+    <text class="qadam" x="495" y="138" text-anchor="middle">2 · APK</text>
+    <text class="izoh"  x="495" y="228" text-anchor="middle">app/build</text>
+  </g>
+
+  <g>
+    <rect x="723" y="164" width="24" height="24" fill="#e6e0d5" stroke="#8b8578" stroke-width="2"/>
+    <text class="qadam" x="735" y="138" text-anchor="middle">3 · O'RNATADI</text>
+    <text class="izoh"  x="735" y="228" text-anchor="middle">emulyatorga</text>
+  </g>
+
+  <g>
+    <rect x="963" y="164" width="24" height="24" fill="#b32b26"/>
+    <text class="qadam" x="975" y="138" text-anchor="middle">4 · OCHADI</text>
+    <text class="izoh"  x="975" y="228" text-anchor="middle">ekranda</text>
+  </g>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">BIRINCHI SAFAR 2-5 DAQIQA · KEYINGILARI SONIYALAR</text>
+</svg>

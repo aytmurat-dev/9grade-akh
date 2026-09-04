@@ -226,6 +226,17 @@ export default function DizaynSahifasi() {
         </Royxat>
       </Bolim>
 
+      {/* ---------------- Rasm o'rni ---------------- */}
+
+      <Bolim sarlavha="Skrinshot kutilmoqda">
+        <span className="ds-rasm-kutilmoqda">
+          <span className="ds-rasm-kutilmoqda-yorliq">Skrinshot kutilmoqda</span>
+          <span className="ds-rasm-kutilmoqda-tavsif">
+            Brauzer konsoli — console.log natijasi
+          </span>
+        </span>
+      </Bolim>
+
       {/* ---------------- Jadval ---------------- */}
 
       <Bolim sarlavha="Jadval">

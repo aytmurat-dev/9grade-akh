@@ -100,8 +100,10 @@ Jami: 26 D · 4 A · 0 L · 4 BSB
 
 Jami: 15 D · 12 A · 3 L · 4 BSB
 
-**Til:** Java yoki Kotlin — foydalanuvchi bilan aniqlanadi.
-Birinchi darsdan oldin so'rang, keyin barcha darslarda bir xil qoladi.
+**Til: Kotlin** — 2026-09-04 da tanlandi, barcha mobil darslarida shunday
+qoladi. Layout esa XML bo'lib qoladi: yangi loyiha "Empty Views Activity"
+shablonidan yaratiladi (Compose emas), chunki 03-darsdan boshlab Layout,
+Button, Fragment va RecyclerView mavzulari shu yo'lda boradi.
 
 ---
 

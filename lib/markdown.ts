@@ -6,6 +6,7 @@ import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
 import { visit } from 'unist-util-visit';
 import type { Element, Root } from 'hast';
+import { rasmBormi } from './darslar';
 
 /**
  * Qo'llanma markdown'i build paytida HTML'ga aylantiriladi.
@@ -100,11 +101,46 @@ function rehypeKodPanel() {
   };
 }
 
-/** Rasmlarni kattalashtirish uchun belgilaymiz + lazy yuklash. */
+/**
+ * Rasmlarni kattalashtirish uchun belgilaymiz + lazy yuklash.
+ *
+ * Fayl hali qo'yilmagan bo'lsa (skrinshotni o'qituvchi keyin oladi,
+ * rules/08) buzuq rasm belgisi o'rniga punktir plita chiziladi —
+ * slayddagi "SKRINSHOT KUTILMOQDA" bilan bir xil g'oya.
+ */
 function rehypeRasmlar() {
   return (tree: Root) => {
-    visit(tree, 'element', (tugun) => {
+    visit(tree, 'element', (tugun, indeks, ota) => {
       if (tugun.tagName !== 'img') return;
+
+      const yol = String(tugun.properties?.src ?? '');
+      const tavsif = String(tugun.properties?.alt ?? '');
+
+      if (ota && indeks !== undefined && yol.startsWith('/') && !rasmBormi(yol)) {
+        // <img> ko'pincha <p> ichida turadi, shuning uchun <span> —
+        // <figure> bo'lsa HTML tuzilishi buziladi.
+        ota.children[indeks] = {
+          type: 'element',
+          tagName: 'span',
+          properties: { className: ['ds-rasm-kutilmoqda'] },
+          children: [
+            {
+              type: 'element',
+              tagName: 'span',
+              properties: { className: ['ds-rasm-kutilmoqda-yorliq'] },
+              children: [{ type: 'text', value: 'Skrinshot kutilmoqda' }],
+            },
+            {
+              type: 'element',
+              tagName: 'span',
+              properties: { className: ['ds-rasm-kutilmoqda-tavsif'] },
+              children: [{ type: 'text', value: tavsif }],
+            },
+          ],
+        };
+        return ['skip', indeks + 1] as const;
+      }
+
       tugun.properties = {
         ...tugun.properties,
         loading: 'lazy',

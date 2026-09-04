@@ -736,6 +736,34 @@
   box-shadow: var(--soya-2);
 }
 
+/* Fayl hali qo'yilmagan skrinshot o'rni (lib/markdown.ts) */
+.ds-rasm-kutilmoqda {
+  display: block;
+  margin: 0 0 var(--joy-6);
+  padding: var(--joy-8) var(--joy-5);
+  border: 2px dashed var(--rang-chiziq);
+  border-radius: var(--burchak-md);
+  background: var(--rang-fon-2);
+  text-align: center;
+}
+
+.ds-rasm-kutilmoqda-yorliq {
+  display: block;
+  color: var(--rang-matn-3);
+  font-size: var(--olcham-xs);
+  font-weight: var(--qalin-ulkan);
+  letter-spacing: var(--harf-keng);
+  text-transform: uppercase;
+}
+
+.ds-rasm-kutilmoqda-tavsif {
+  display: block;
+  margin-top: var(--joy-2);
+  color: var(--rang-matn-2);
+  font-size: var(--olcham-sm);
+  line-height: var(--qator-orta);
+}
+
 /* ------------------------------------------------------------------
    Yordamchilar
    ------------------------------------------------------------------ */

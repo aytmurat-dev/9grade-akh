@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Kod, rasm va matn fayllari yigilib bitta APK fayl chiqadi va telefonga ornatiladi">
+  <title>Kod qanday ilovaga aylanadi</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .matn   { font: 500 23px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .katta  { font: 500 40px 'IBM Plex Mono', Consolas, monospace; fill: #b32b26; letter-spacing: .06em; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. Yoziladigan fayllar -->
+  <text class="yorliq" x="20" y="70">1 · YOZILADI</text>
+  <rect class="quti" x="20" y="96" width="250" height="42"/>
+  <text class="matn" x="40" y="125">MainActivity.kt</text>
+  <rect class="quti" x="20" y="150" width="250" height="42"/>
+  <text class="matn" x="40" y="179">activity_main.xml</text>
+  <rect class="quti" x="20" y="204" width="250" height="42"/>
+  <text class="matn" x="40" y="233">rasm, matn, rang</text>
+
+  <path class="oq" d="M292 171 H338"/>
+  <path d="M338 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. Android Studio yig'adi -->
+  <text class="yorliq" x="360" y="70">2 · YIG'ILADI</text>
+  <rect class="quti" x="360" y="96" width="250" height="150"/>
+  <text class="matn" x="485" y="160" text-anchor="middle">ANDROID</text>
+  <text class="matn" x="485" y="192" text-anchor="middle">STUDIO</text>
+  <rect x="425" y="212" width="120" height="3" fill="#b32b26"/>
+
+  <path class="oq" d="M632 171 H678"/>
+  <path d="M678 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. Bitta APK fayl -->
+  <text class="yorliq" x="700" y="70">3 · BITTA FAYL</text>
+  <rect x="700" y="96" width="170" height="150" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="katta" x="785" y="175" text-anchor="middle">APK</text>
+  <text class="yorliq" x="785" y="212" text-anchor="middle" font-size="19">78 MB</text>
+
+  <path class="oq" d="M892 171 H938"/>
+  <path d="M938 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 4. Telefon -->
+  <text class="yorliq" x="960" y="70">4 · TELEFON</text>
+  <rect class="quti" x="960" y="96" width="120" height="150" rx="14"/>
+  <rect x="974" y="114" width="92" height="104" fill="#f0ebe2" stroke="#cdc5b4" stroke-width="1.5"/>
+  <circle cx="1020" cy="232" r="7" fill="none" stroke="#8b8578" stroke-width="2"/>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">KO'P FAYL YOZILADI · BITTA FAYL O'RNATILADI</text>
+</svg>
