@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="2 + 3 * 4 ifodasida avval kopaytirish bajariladi va 14 chiqadi, qavs qoyilsa 20 chiqadi">
+  <title>Amallar tartibi: qaysi amal birinchi</title>
+
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .ifoda  { font: 500 30px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .kichik { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- Yuqori qator: qavssiz -->
+  <text class="yorliq" x="20" y="60">QAVSSIZ</text>
+
+  <rect class="quti" x="20" y="80" width="250" height="76"/>
+  <text class="ifoda" x="145" y="128" text-anchor="middle">2 + 3 * 4</text>
+  <rect x="176" y="136" width="62" height="3" fill="#b32b26"/>
+
+  <path class="oq" d="M290 118 H340"/>
+  <path d="M340 118 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <rect class="quti" x="360" y="80" width="250" height="76"/>
+  <text class="ifoda" x="485" y="128" text-anchor="middle">2 + 12</text>
+  <text class="kichik" x="485" y="70" text-anchor="middle">1 · 3 * 4 = 12</text>
+
+  <path class="oq" d="M630 118 H680"/>
+  <path d="M680 118 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <rect class="quti" x="700" y="80" width="200" height="76"/>
+  <text class="ifoda" x="800" y="128" text-anchor="middle">14</text>
+  <text class="kichik" x="800" y="70" text-anchor="middle">2 · 2 + 12</text>
+
+  <!-- Pastki qator: qavs bilan -->
+  <text class="yorliq" x="20" y="212" fill="#b32b26">QAVS BILAN</text>
+
+  <rect class="quti" x="20" y="232" width="250" height="76"/>
+  <text class="ifoda" x="145" y="280" text-anchor="middle">(2 + 3) * 4</text>
+  <rect x="60" y="288" width="76" height="3" fill="#b32b26"/>
+
+  <path class="oq" d="M290 270 H340"/>
+  <path d="M340 270 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <rect class="quti" x="360" y="232" width="250" height="76"/>
+  <text class="ifoda" x="485" y="280" text-anchor="middle">5 * 4</text>
+
+  <path class="oq" d="M630 270 H680"/>
+  <path d="M680 270 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <rect x="700" y="232" width="200" height="76" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="ifoda" x="800" y="280" text-anchor="middle" fill="#b32b26">20</text>
+
+  <!-- o'ng chetdagi izoh -->
+  <text class="yorliq" x="930" y="128">* / %</text>
+  <text class="kichik" x="930" y="156">birinchi</text>
+  <text class="yorliq" x="930" y="280">+ -</text>
+  <text class="kichik" x="930" y="308">ikkinchi</text>
+</svg>

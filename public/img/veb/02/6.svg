@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="prompt yozilgan javobni matn korinishida qaytaradi, Number uni songa aylantiradi, Numbersiz esa ikki matn ulanib 53 chiqadi">
+  <title>prompt matn qaytaradi, Number uni songa aylantiradi</title>
+
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .kod    { font: 500 23px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .katta  { font: 500 32px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. prompt oynasi -->
+  <text class="yorliq" x="20" y="60">1 · PROMPT</text>
+  <rect class="quti" x="20" y="80" width="250" height="120"/>
+  <text class="kod" x="42" y="118">Birinchi son:</text>
+  <rect x="42" y="136" width="206" height="38" fill="#f0ebe2" stroke="#cdc5b4" stroke-width="2"/>
+  <text class="kod" x="56" y="162">5</text>
+
+  <path class="oq" d="M290 140 H340"/>
+  <path d="M340 140 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. matn qaytadi -->
+  <text class="yorliq" x="360" y="60">2 · MATN QAYTADI</text>
+  <rect class="quti" x="360" y="80" width="200" height="120"/>
+  <text class="katta" x="460" y="152" text-anchor="middle">"5"</text>
+  <text class="yorliq" x="460" y="192" text-anchor="middle" font-size="19">MATN</text>
+
+  <path class="oq" d="M580 140 H630"/>
+  <path d="M630 140 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. Number -->
+  <text class="yorliq" x="650" y="60">3 · NUMBER( )</text>
+  <rect x="650" y="80" width="200" height="120" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="katta" x="750" y="152" text-anchor="middle" fill="#b32b26">5</text>
+  <text class="yorliq" x="750" y="192" text-anchor="middle" font-size="19">SON</text>
+
+  <path class="oq" d="M870 140 H920"/>
+  <path d="M920 140 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 4. natija -->
+  <text class="yorliq" x="940" y="60">4 · AMAL</text>
+  <rect class="quti" x="940" y="80" width="160" height="120"/>
+  <text class="katta" x="1020" y="152" text-anchor="middle">5 + 3</text>
+  <text class="yorliq" x="1020" y="192" text-anchor="middle" font-size="19">= 8</text>
+
+  <!-- pastda: Number siz -->
+  <path d="M20 240 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="278">NUMBER( ) YOZILMASA — IKKI MATN QO'SHILMAYDI, ULANADI</text>
+  <text class="katta" x="20" y="322">"5" + "3" = <tspan fill="#b32b26">"53"</tspan></text>
+</svg>

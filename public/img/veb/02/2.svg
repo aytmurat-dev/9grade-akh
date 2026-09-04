@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="let narx = 12000 qatori nomi yozilgan quti yasaydi, keyin narx nomi qiymat orniga ishlatiladi">
+  <title>O'zgaruvchi — nomi yozilgan quti</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .kod    { font: 500 24px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .nom    { font: 500 22px 'IBM Plex Mono', Consolas, monospace; fill: #b32b26; letter-spacing: .1em; }
+    .son    { font: 500 34px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. Qator yoziladi -->
+  <text class="yorliq" x="20" y="70">1 · SIZ YOZASIZ</text>
+  <rect class="quti" x="20" y="96" width="330" height="112"/>
+  <text class="kod" x="44" y="162"><tspan fill="#b32b26">let</tspan> narx = 12000;</text>
+
+  <path class="oq" d="M370 152 H420"/>
+  <path d="M420 152 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. Quti yasaladi va to'ldiriladi -->
+  <text class="yorliq" x="440" y="70">2 · QUTI YASALADI</text>
+  <rect class="quti" x="440" y="96" width="260" height="112"/>
+  <rect x="440" y="96" width="260" height="34" fill="#f0ebe2" stroke="#cdc5b4" stroke-width="2"/>
+  <text class="nom" x="570" y="121" text-anchor="middle">NARX</text>
+  <text class="son" x="570" y="180" text-anchor="middle">12000</text>
+
+  <path class="oq" d="M720 152 H770"/>
+  <path d="M770 152 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. Nom qiymat o'rniga ishlatiladi -->
+  <text class="yorliq" x="790" y="70">3 · NOMI BILAN</text>
+  <rect class="quti" x="790" y="96" width="310" height="112"/>
+  <text class="kod" x="812" y="140">narx * 3</text>
+  <text class="kod" x="812" y="184" fill="#8b8578">12000 * 3 = 36000</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 250 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="282">QIYMAT ALMASHSA QUTI O'SHA QOLADI — ESKI SON YO'QOLADI</text>
+  <text class="kod" x="20" y="322" fill="#8b8578">narx = 15000;  <tspan fill="#b32b26">// let yozilmaydi</tspan></text>
+</svg>
