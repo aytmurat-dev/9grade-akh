@@ -114,7 +114,7 @@ muqova sarlavhasi `8.4cqw`.
 |---|---|---|
 | `yorliq` | 24 belgi | bo'lim nomi, KATTA HARF |
 | `ustyozuv` | 48 belgi | sarlavha ustidagi qizil qator |
-| `sarlavha` | ~6 so'z | uzun bo'lsa kadrga sig'maydi |
+| `sarlavha` | ~28 belgi | **bir qatorga sig'sin** — ikki qator ustyozuv va teglarni siqadi |
 | `matn` | 1–2 gap | uzunini qo'llanmaga |
 | `royxat` | 4 punkt | har biri 5–7 so'z |
 | `kod` | 6 qator | uzunini qo'llanmaga |

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Gradle kod, resurslar, manifest va sozlamalarni bitta APK faylga yigadi">
+  <title>Kod, res va sozlamalar APK ga yig'iladi</title>
+
+  <style>
+    .yorliq { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .nom    { font: 500 21px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2; fill: none; }
+  </style>
+
+  <!-- 1. To'rt manba -->
+  <text class="yorliq" x="20" y="52">1 · MANBALAR</text>
+
+  <rect class="quti" x="20" y="70" width="280" height="46"/>
+  <text class="nom" x="40" y="99">MainActivity.kt</text>
+
+  <rect class="quti" x="20" y="124" width="280" height="46"/>
+  <text class="nom" x="40" y="153">res/ ...</text>
+
+  <rect class="quti" x="20" y="178" width="280" height="46"/>
+  <text class="nom" x="40" y="207">AndroidManifest.xml</text>
+
+  <rect class="quti" x="20" y="232" width="280" height="46"/>
+  <text class="nom" x="40" y="261">build.gradle.kts</text>
+
+  <!-- simlar Gradle ga -->
+  <path class="oq" d="M300 93 H352 V176 H408"/>
+  <path class="oq" d="M300 147 H352"/>
+  <path class="oq" d="M300 201 H352"/>
+  <path class="oq" d="M300 255 H352 V176"/>
+  <circle cx="352" cy="176" r="4" fill="#8b8578"/>
+  <path d="M408 176 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. Gradle -->
+  <text class="yorliq" x="420" y="52">2 · GRADLE</text>
+  <rect class="quti" x="420" y="118" width="250" height="116"/>
+  <text class="nom" x="545" y="170" text-anchor="middle">GRADLE</text>
+  <rect x="480" y="186" width="130" height="3" fill="#b32b26"/>
+  <text class="yorliq" x="545" y="216" text-anchor="middle" font-size="18">YIG'ADI</text>
+
+  <path class="oq" d="M670 176 H726" stroke-width="2.5"/>
+  <path d="M726 176 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. APK -->
+  <text class="yorliq" x="746" y="52">3 · NATIJA</text>
+  <rect x="746" y="118" width="354" height="116" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="nom" x="923" y="164" text-anchor="middle" fill="#b32b26">app-debug.apk</text>
+  <text class="yorliq" x="923" y="200" text-anchor="middle" font-size="17">APP/BUILD/OUTPUTS/APK/</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 296 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="326">GRADLE FAYLI O'ZGARSA — SYNC · RES YOKI KOD O'ZGARSA — ODDIY RUN</text>
+</svg>

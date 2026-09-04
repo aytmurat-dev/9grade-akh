@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="strings.xml dagi satr R sinfi orqali raqam oladi, XML va Kotlin undan nom bilan foydalanadi va matn ekranga chiqadi">
+  <title>Resurs qanday topiladi va ekranga chiqadi</title>
+
+  <style>
+    .yorliq { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .kod    { font: 500 20px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- 1. strings.xml -->
+  <text class="yorliq" x="20" y="60">1 · STRINGS.XML</text>
+  <rect class="quti" x="20" y="80" width="330" height="110"/>
+  <text class="kod" x="40" y="122">&lt;string</text>
+  <text class="kod" x="40" y="150">  name=<tspan fill="#b32b26">"salom_matni"</tspan>&gt;</text>
+  <text class="kod" x="40" y="178">  Salom, Nukus!</text>
+
+  <path class="oq" d="M370 134 H416"/>
+  <path d="M416 134 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. R sinfi -->
+  <text class="yorliq" x="436" y="60">2 · R SINFI</text>
+  <rect class="quti" x="436" y="80" width="230" height="110"/>
+  <text class="kod" x="456" y="128">R.string.</text>
+  <text class="kod" x="456" y="156" fill="#b32b26">salom_matni</text>
+
+  <!-- ikki tomonga -->
+  <path class="oq" d="M686 110 H730"/>
+  <path d="M730 110 l-12 -7 v14 z" fill="#8b8578"/>
+  <path class="oq" d="M686 160 H730"/>
+  <path d="M730 160 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. Ikki chaqiruv -->
+  <text class="yorliq" x="750" y="60">3 · CHAQIRISH</text>
+  <rect class="quti" x="750" y="80" width="350" height="52"/>
+  <text class="kod" x="768" y="112">XML: @string/salom_matni</text>
+  <rect class="quti" x="750" y="140" width="350" height="52"/>
+  <text class="kod" x="768" y="172">KT:  R.string.salom_matni</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 232 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="266">QIYMAT BITTA JOYDA TURADI — O'ZGARTIRSANGIZ HAMMA YERDA O'ZGARADI</text>
+  <text class="yorliq" x="20" y="306">SHUNING UCHUN TARJIMA OSON: VALUES-RU PAPKASI QO'SHILADI, KODGA TEGILMAYDI</text>
+</svg>

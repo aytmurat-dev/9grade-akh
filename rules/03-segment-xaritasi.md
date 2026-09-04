@@ -73,6 +73,25 @@ SEGMENT 3: break va continue
   Topshiriq: 1..20 dan 3 ga bo'linadiganlarni chiqaring
 ```
 
+## SEGMENT NOMINING UZUNLIGI
+
+Segment nomi uch joyda bir xil yoziladi: frontmatter, A-slaydining
+sarlavhasi va qo'llanma sarlavhasi (`rules/10`, 8-punkt). Ya'ni nom
+**slayd sarlavhasi sifatida ham ishlaydi** — shuning uchun u
+**~28 belgidan oshmasin**.
+
+Uzun nom kadrda ikki qatorga chiqadi va sarlavha ustidagi qizil
+yozuvni yuqoriga, teglarni esa pastki qatorga siqib chiqaradi.
+
+| Yaxshi | Uzun |
+|---|---|
+| `O'zgaruvchi va qiymat` | `O'zgaruvchi — qiymatni eslab qolish` |
+| `prompt bilan son olish` | `Foydalanuvchidan son so'rash` |
+| `Gradle va AndroidManifest` | — |
+
+Nom qisqa bo'lsa ham mazmunli bo'lsin: o'quvchi videoning o'sha
+joyini qo'llanmadan shu nom bo'yicha topadi.
+
 ## PAUZA TURINI TANLASH
 
 **Nazariy (1–2 daq)** — javob berish, bashorat qilish, xato topish:
