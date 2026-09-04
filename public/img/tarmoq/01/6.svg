@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Xabar uchta paketga bolinadi, har biri oz yoli bilan boradi va manzilda qayta yigiladi">
+  <title>Xabar paketlarga bo'linadi va qayta yig'iladi</title>
+
+  <style>
+    .yorliq { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .nom    { font: 500 23px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .paket  { font: 400 19px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .yol    { stroke: #8b8578; stroke-width: 2; fill: none; }
+  </style>
+
+  <!-- 1. Butun xabar -->
+  <text class="yorliq" x="20" y="66">1 · XABAR</text>
+  <rect class="quti" x="20" y="96" width="240" height="150"/>
+  <text class="nom" x="140" y="160" text-anchor="middle">SALOM,</text>
+  <text class="nom" x="140" y="192" text-anchor="middle">NUKUS!</text>
+
+  <path class="yol" d="M272 171 H308" stroke-width="2.5"/>
+  <path d="M308 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 2. Paketlarga bo'linadi -->
+  <text class="yorliq" x="330" y="66">2 · PAKETLAR</text>
+  <rect class="quti" x="330" y="96" width="230" height="44"/>
+  <text class="paket" x="348" y="124"><tspan fill="#b32b26">01</tspan> · MANZIL BOR</text>
+  <rect class="quti" x="330" y="150" width="230" height="44"/>
+  <text class="paket" x="348" y="178"><tspan fill="#b32b26">02</tspan> · MANZIL BOR</text>
+  <rect class="quti" x="330" y="204" width="230" height="44"/>
+  <text class="paket" x="348" y="232"><tspan fill="#b32b26">03</tspan> · MANZIL BOR</text>
+
+  <!-- 3. Turli yo'l bilan boradi -->
+  <text class="yorliq" x="600" y="66">3 · TURLI YO'L</text>
+  <path class="yol" d="M566 118 C 660 118, 700 150, 800 171" stroke-dasharray="6 6"/>
+  <path class="yol" d="M566 172 H800"/>
+  <path class="yol" d="M566 226 C 660 226, 700 194, 800 171" stroke-dasharray="6 6"/>
+  <path d="M806 171 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 4. Qayta yig'iladi -->
+  <text class="yorliq" x="840" y="66">4 · YIG'ILADI</text>
+  <rect class="quti" x="840" y="96" width="240" height="150"/>
+  <text class="nom" x="960" y="160" text-anchor="middle">SALOM,</text>
+  <text class="nom" x="960" y="192" text-anchor="middle">NUKUS!</text>
+  <rect x="900" y="208" width="120" height="3" fill="#b32b26"/>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">HAR PAKETDA MANZIL VA TARTIB RAQAMI BOR · BIRI YO'QOLSA QAYTA SO'RALADI</text>
+</svg>

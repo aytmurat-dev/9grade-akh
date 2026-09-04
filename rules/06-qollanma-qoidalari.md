@@ -139,6 +139,10 @@ Til belgilanadi — sayt nusxalash tugmasi va bo'yashni shundan oladi:
 | mobil | `java` yoki `kotlin`, `xml` |
 | tarmoq | `bash` (IOS buyruqlari uchun) |
 
+Buyruqning **natijasi** (ekranga chiqqan javob) `text` bilan
+belgilanadi — sayt uni «Natija» deb yozadi va bo'yamaydi. Buyruq va
+javob bir xil ko'rinsa, o'quvchi qaysi birini yozishni bilmay qoladi.
+
 Kod to'liq bo'lsin — o'quvchi nusxa olib ishga tushira olsin.
 
 ## UZUNLIGI

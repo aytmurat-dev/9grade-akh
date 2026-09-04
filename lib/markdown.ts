@@ -23,6 +23,8 @@ const TIL_NOMI: Record<string, string> = {
   typescript: 'TypeScript',
   json: 'JSON',
   bash: 'Terminal',
+  text: 'Natija',
+  plaintext: 'Natija',
   sh: 'Terminal',
   shell: 'Terminal',
   python: 'Python',

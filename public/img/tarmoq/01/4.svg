@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Paket sizdan routerga, provayderga, magistral tarmoqlarga va serverga sakrab boradi">
+  <title>Uydan serverga qadar bo'lgan yo'l</title>
+
+  <style>
+    .yorliq { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .nom    { font: 500 22px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; letter-spacing: .04em; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2.5; fill: none; }
+  </style>
+
+  <!-- sakrash raqamlari + qutilar -->
+  <text class="yorliq" x="110" y="98" text-anchor="middle">SIZ</text>
+  <rect class="quti" x="20" y="118" width="180" height="110"/>
+  <text class="nom" x="110" y="180" text-anchor="middle">KOMPYUTER</text>
+
+  <path class="oq" d="M206 173 H239"/>
+  <path d="M239 173 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <text class="yorliq" x="335" y="98" text-anchor="middle">1 · SAKRASH</text>
+  <rect class="quti" x="245" y="118" width="180" height="110"/>
+  <text class="nom" x="335" y="180" text-anchor="middle">ROUTER</text>
+
+  <path class="oq" d="M431 173 H464"/>
+  <path d="M464 173 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <text class="yorliq" x="560" y="98" text-anchor="middle">2-3 · SAKRASH</text>
+  <rect class="quti" x="470" y="118" width="180" height="110"/>
+  <text class="nom" x="560" y="180" text-anchor="middle">PROVAYDER</text>
+
+  <path class="oq" d="M656 173 H689"/>
+  <path d="M689 173 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <text class="yorliq" x="785" y="98" text-anchor="middle">4-9 · SAKRASH</text>
+  <rect class="quti" x="695" y="118" width="180" height="110"/>
+  <text class="nom" x="785" y="180" text-anchor="middle">MAGISTRAL</text>
+
+  <path class="oq" d="M881 173 H914"/>
+  <path d="M914 173 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <text class="yorliq" x="1010" y="98" text-anchor="middle">10 · MANZIL</text>
+  <rect x="920" y="118" width="180" height="110" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="nom" x="1010" y="180" text-anchor="middle" fill="#b32b26">SERVER</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">HAR SAKRASH — BOSHQA TARMOQ · YO'L HAR SAFAR BIR XIL EMAS</text>
+</svg>

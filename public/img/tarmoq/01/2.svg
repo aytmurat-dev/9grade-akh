@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Uydagi uchta qurilma bitta routerga ulangan, routerdan tashqariga internet chiqadi">
+  <title>Uy tarmog'i va router</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .16em; }
+    .nom    { font: 500 22px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .ip     { font: 400 21px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .sim    { stroke: #8b8578; stroke-width: 2; fill: none; }
+  </style>
+
+  <!-- 1. Uy qurilmalari -->
+  <text class="yorliq" x="20" y="66">1 · QURILMALAR</text>
+  <rect class="quti" x="20" y="84" width="290" height="52"/>
+  <text class="nom" x="40" y="117">NOUTBUK</text>
+  <text class="ip"  x="290" y="117" text-anchor="end">192.168.1.5</text>
+
+  <rect class="quti" x="20" y="150" width="290" height="52"/>
+  <text class="nom" x="40" y="183">TELEFON</text>
+  <text class="ip"  x="290" y="183" text-anchor="end">192.168.1.7</text>
+
+  <rect class="quti" x="20" y="216" width="290" height="52"/>
+  <text class="nom" x="40" y="249">PRINTER</text>
+  <text class="ip"  x="290" y="249" text-anchor="end">192.168.1.9</text>
+
+  <!-- simlar: uchala qurilma routerga -->
+  <path class="sim" d="M310 110 H370 V176 H420"/>
+  <path class="sim" d="M310 176 H420"/>
+  <path class="sim" d="M310 242 H370 V176 H420"/>
+  <circle cx="370" cy="176" r="4" fill="#8b8578"/>
+
+  <!-- 2. Router -->
+  <text class="yorliq" x="420" y="66">2 · ROUTER</text>
+  <rect class="quti" x="420" y="110" width="250" height="132"/>
+  <text class="nom" x="545" y="165" text-anchor="middle">ROUTER</text>
+  <rect x="480" y="180" width="130" height="3" fill="#b32b26"/>
+  <text class="ip"  x="545" y="212" text-anchor="middle">192.168.1.1</text>
+
+  <!-- tashqariga -->
+  <path class="sim" d="M670 176 H736" stroke-width="2.5"/>
+  <path d="M736 176 l-12 -7 v14 z" fill="#8b8578"/>
+
+  <!-- 3. Tashqari -->
+  <text class="yorliq" x="760" y="66">3 · TASHQARI</text>
+  <rect x="760" y="110" width="340" height="132" fill="none" stroke="#cdc5b4" stroke-width="2" stroke-dasharray="7 7"/>
+  <text class="nom" x="930" y="185" text-anchor="middle">INTERNET</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 292 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="322">MANZILLAR BIR XIL BOSHLANADI — DEMAK BITTA TARMOQ</text>
+</svg>
