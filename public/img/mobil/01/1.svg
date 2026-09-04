@@ -42,7 +42,7 @@
   <path d="M938 171 l-12 -7 v14 z" fill="#8b8578"/>
 
   <!-- 4. Telefon -->
-  <text class="yorliq" x="960" y="70">4 · TELEFON</text>
+  <text class="yorliq" x="944" y="70">4 · TELEFON</text>
   <rect class="quti" x="960" y="96" width="120" height="150" rx="14"/>
   <rect x="974" y="114" width="92" height="104" fill="#f0ebe2" stroke="#cdc5b4" stroke-width="1.5"/>
   <circle cx="1020" cy="232" r="7" fill="none" stroke="#8b8578" stroke-width="2"/>

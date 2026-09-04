@@ -114,7 +114,7 @@ muqova sarlavhasi `8.4cqw`.
 |---|---|---|
 | `yorliq` | 24 belgi | bo'lim nomi, KATTA HARF |
 | `ustyozuv` | 48 belgi | sarlavha ustidagi qizil qator |
-| `sarlavha` | ~28 belgi | **bir qatorga sig'sin** — ikki qator ustyozuv va teglarni siqadi |
+| `sarlavha` | ~26 belgi | **bir qatorga sig'sin** — ikki qator ustyozuv va teglarni siqadi |
 | `matn` | 1–2 gap | uzunini qo'llanmaga |
 | `royxat` | 4 punkt | har biri 5–7 so'z |
 | `kod` | 6 qator | uzunini qo'llanmaga |
@@ -124,6 +124,10 @@ muqova sarlavhasi `8.4cqw`.
 Hammasi ixtiyoriy — komponent borini chizadi. Lekin **bitta slaydda
 matn ham, ro'yxat ham, kod ham, rasm ham bo'lmasin**: bir slayd — bir
 fikr (`rules/05`).
+
+**To'rt punktli ro'yxat bilan teglar birga sig'maydi.** Ro'yxat 4 punkt
+bo'lsa, `teglar` ni yozmang: ular pastki qatorga urilib, slayd
+raqamining ustiga tushadi. Uch punktli ro'yxatda teglar joyiga sig'adi.
 
 ---
 

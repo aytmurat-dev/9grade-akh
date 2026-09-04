@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Packet Tracer oynasining besh zonasi: ish maydoni, qurilma turlari, modellar royxati, rejim tugmalari va menyu">
+  <title>Packet Tracer oynasining zonalari</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 19px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .nom    { font: 500 21px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .raqam  { font: 500 19px 'IBM Plex Mono', Consolas, monospace; fill: #b32b26; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+  </style>
+
+  <!-- oyna ramkasi -->
+  <rect x="20" y="24" width="800" height="292" fill="none" stroke="#cdc5b4" stroke-width="2"/>
+
+  <!-- 5 menyu -->
+  <rect class="quti" x="20" y="24" width="800" height="42"/>
+  <text class="raqam" x="40" y="52">5</text>
+  <text class="nom" x="66" y="52">MENYU · SAQLASH · O'CHIRISH</text>
+
+  <!-- 1 ish maydoni -->
+  <rect x="20" y="66" width="800" height="164" fill="#f0ebe2" stroke="#cdc5b4" stroke-width="2"/>
+  <text class="raqam" x="40" y="96">1</text>
+  <text class="nom" x="66" y="96">ISH MAYDONI</text>
+  <text class="yorliq" x="66" y="126">TARMOQ SHU YERDA QURILADI</text>
+  <rect class="quti" x="240" y="150" width="110" height="46"/>
+  <text class="yorliq" x="295" y="178" text-anchor="middle">PC0</text>
+  <rect class="quti" x="440" y="150" width="110" height="46"/>
+  <text class="yorliq" x="495" y="178" text-anchor="middle">SWITCH0</text>
+  <rect class="quti" x="640" y="150" width="110" height="46"/>
+  <text class="yorliq" x="695" y="178" text-anchor="middle">PC1</text>
+  <path d="M350 173 H440" stroke="#8b8578" stroke-width="2"/>
+  <path d="M550 173 H640" stroke="#8b8578" stroke-width="2"/>
+
+  <!-- 2 qurilma turlari -->
+  <rect class="quti" x="20" y="230" width="230" height="86"/>
+  <text class="raqam" x="40" y="258">2</text>
+  <text class="nom" x="66" y="258">TURLARI</text>
+  <text class="yorliq" x="40" y="286">END DEVICES</text>
+  <text class="yorliq" x="40" y="308">NETWORK · CONNECTIONS</text>
+
+  <!-- 3 modellar -->
+  <rect class="quti" x="250" y="230" width="330" height="86"/>
+  <text class="raqam" x="270" y="258">3</text>
+  <text class="nom" x="296" y="258">MODELLAR</text>
+  <text class="yorliq" x="270" y="286">PC · SERVER · 2960 · 2911</text>
+  <text class="yorliq" x="270" y="308">TANLAB, MAYDONNI BOSASIZ</text>
+
+  <!-- 4 rejim -->
+  <rect x="580" y="230" width="240" height="86" fill="#f0ebe2" stroke="#b32b26" stroke-width="2.5"/>
+  <text class="raqam" x="600" y="258">4</text>
+  <text class="nom" x="626" y="258" fill="#b32b26">REJIM</text>
+  <text class="yorliq" x="600" y="286">REALTIME — HOZIR</text>
+  <text class="yorliq" x="600" y="308">SIMULATION — 24-DARS</text>
+
+  <!-- o'ng chetdagi izoh -->
+  <path d="M856 24 V316" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="882" y="120">QURILMA QO'YISH —</text>
+  <text class="yorliq" x="882" y="148">IKKI BOSISH:</text>
+  <text class="yorliq" x="882" y="186">1 · MODELNI TANLA</text>
+  <text class="yorliq" x="882" y="214">2 · MAYDONNI BOS</text>
+</svg>

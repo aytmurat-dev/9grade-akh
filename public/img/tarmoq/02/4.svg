@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="Turli guruhdagi qurilmalar togri kabel bilan, bir guruhdagilar krest kabel bilan ulanadi">
+  <title>Qaysi juftlikka qaysi kabel kerak</title>
+
+  <!-- Dossier palitrasi (rules/11): qog'oz shaffof, siyoh, bitta qizil -->
+  <style>
+    .yorliq { font: 400 20px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .14em; }
+    .past   { font: 400 17px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .12em; }
+    .nom    { font: 500 21px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; letter-spacing: .1em; }
+    .kabel  { font: 400 18px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .1em; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+  </style>
+
+  <!-- Yuqori qator: turli guruh -> to'g'ri kabel -->
+  <text class="yorliq" x="20" y="46">TURLI GURUH</text>
+
+  <rect class="quti" x="20" y="62" width="170" height="62"/>
+  <text class="nom" x="105" y="100" text-anchor="middle">PC</text>
+  <text class="past" x="105" y="146" text-anchor="middle">CHEKKA</text>
+
+  <path d="M190 93 H370" stroke="#1c1a17" stroke-width="3"/>
+
+  <rect class="quti" x="370" y="62" width="170" height="62"/>
+  <text class="nom" x="455" y="100" text-anchor="middle">SWITCH</text>
+  <text class="past" x="455" y="146" text-anchor="middle">ULOVCHI</text>
+
+  <text class="nom" x="590" y="88">TO'G'RI KABEL</text>
+  <text class="kabel" x="590" y="118">COPPER STRAIGHT-THROUGH</text>
+
+  <!-- Ajratuvchi -->
+  <path d="M20 180 H1100" stroke="#cdc5b4" stroke-width="1"/>
+
+  <!-- Pastki qator: bir guruh -> krest kabel -->
+  <text class="yorliq" x="20" y="216" fill="#b32b26">BIR GURUH</text>
+
+  <rect class="quti" x="20" y="232" width="170" height="62"/>
+  <text class="nom" x="105" y="270" text-anchor="middle">PC</text>
+  <text class="past" x="105" y="316" text-anchor="middle">CHEKKA</text>
+
+  <path d="M190 250 H370" stroke="#b32b26" stroke-width="3" stroke-dasharray="10 8"/>
+  <path d="M190 276 H370" stroke="#b32b26" stroke-width="3" stroke-dasharray="10 8"/>
+  <path d="M230 250 L330 276" stroke="#b32b26" stroke-width="2"/>
+  <path d="M230 276 L330 250" stroke="#b32b26" stroke-width="2"/>
+
+  <rect class="quti" x="370" y="232" width="170" height="62"/>
+  <text class="nom" x="455" y="270" text-anchor="middle">PC</text>
+  <text class="past" x="455" y="316" text-anchor="middle">CHEKKA</text>
+
+  <text class="nom" x="590" y="258" fill="#b32b26">KREST KABEL</text>
+  <text class="kabel" x="590" y="288">COPPER CROSS-OVER</text>
+</svg>

@@ -78,7 +78,7 @@ SEGMENT 3: break va continue
 Segment nomi uch joyda bir xil yoziladi: frontmatter, A-slaydining
 sarlavhasi va qo'llanma sarlavhasi (`rules/10`, 8-punkt). Ya'ni nom
 **slayd sarlavhasi sifatida ham ishlaydi** — shuning uchun u
-**~28 belgidan oshmasin**.
+**~26 belgidan oshmasin**.
 
 Uzun nom kadrda ikki qatorga chiqadi va sarlavha ustidagi qizil
 yozuvni yuqoriga, teglarni esa pastki qatorga siqib chiqaradi.

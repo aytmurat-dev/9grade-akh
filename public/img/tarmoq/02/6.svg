@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 340" width="1120" height="340" role="img" aria-label="PC0 avval kim 192.168.1.2 deb soraydi, PC1 javob beradi, shuning uchun birinchi ping paketi vaqti tugab qoladi">
+  <title>Birinchi paket nega yo'qoladi</title>
+
+  <style>
+    .yorliq { font: 400 19px 'IBM Plex Mono', Consolas, monospace; fill: #8b8578; letter-spacing: .13em; }
+    .nom    { font: 500 21px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .kichik { font: 400 18px 'IBM Plex Mono', Consolas, monospace; fill: #1c1a17; }
+    .quti   { fill: #e6e0d5; stroke: #cdc5b4; stroke-width: 2; }
+    .oq     { stroke: #8b8578; stroke-width: 2; fill: none; }
+  </style>
+
+  <!-- ikki uchi -->
+  <rect class="quti" x="20" y="96" width="160" height="130"/>
+  <text class="nom" x="100" y="150" text-anchor="middle">PC0</text>
+  <text class="yorliq" x="100" y="180" text-anchor="middle" font-size="16">.1.1</text>
+
+  <rect class="quti" x="940" y="96" width="160" height="130"/>
+  <text class="nom" x="1020" y="150" text-anchor="middle">PC1</text>
+  <text class="yorliq" x="1020" y="180" text-anchor="middle" font-size="16">.1.2</text>
+
+  <!-- 1-qadam: savol -->
+  <text class="yorliq" x="220" y="60">1 · SAVOL</text>
+  <path class="oq" d="M186 96 H930" stroke-dasharray="7 6"/>
+  <path d="M930 96 l-12 -7 v14 z" fill="#8b8578"/>
+  <rect x="360" y="72" width="400" height="0" fill="none"/>
+  <text class="kichik" x="560" y="88" text-anchor="middle">192.168.1.2 KIMDA?</text>
+
+  <!-- 2-qadam: javob -->
+  <text class="yorliq" x="220" y="150">2 · JAVOB</text>
+  <path class="oq" d="M934 161 H190"/>
+  <path d="M190 161 l12 -7 v14 z" fill="#8b8578"/>
+  <text class="kichik" x="560" y="153" text-anchor="middle">MEN — MANA APPARAT MANZILIM</text>
+
+  <!-- 3-qadam: ping -->
+  <text class="yorliq" x="220" y="226">3 · PING</text>
+  <path class="oq" d="M186 226 H930" stroke-width="2.5"/>
+  <path d="M930 226 l-12 -7 v14 z" fill="#8b8578"/>
+  <text class="kichik" x="560" y="218" text-anchor="middle">ENDI PAKET DARROV KETADI</text>
+
+  <!-- pastdagi izoh -->
+  <path d="M20 268 H1100" stroke="#cdc5b4" stroke-width="1"/>
+  <text class="yorliq" x="20" y="300">BIRINCHI PING SHU SAVOL-JAVOBNI KUTOLMAYDI — VAQTI TUGAYDI</text>
+  <text class="nom" x="20" y="328">Lost = 1 (25% loss)  <tspan fill="#b32b26">— NORMAL, QAYTA PING QILING</tspan></text>
+</svg>
