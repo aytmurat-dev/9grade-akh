@@ -713,7 +713,13 @@
   border: 1px solid var(--rang-chiziq);
   border-radius: var(--burchak-xs);
   padding: 2px 6px;
-  white-space: nowrap;
+  /* Bo'sh joylar saqlanadi (`ping -n 6 8.8.8.8` bir bo'lak bo'lib
+     ko'rinadi), lekin uzun xato matni yoki fayl yo'li telefonda
+     o'ralib ketadi. Ilgari bu yerda `nowrap` turardi va
+     `Uncaught ReferenceError: ...` kabi qatorlar butun sahifani
+     gorizontal surib yuborardi. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   color: var(--rang-asosiy-toq);
   font-weight: var(--qalin-qalin);
 }
